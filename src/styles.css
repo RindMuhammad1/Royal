@@ -1,0 +1,137 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Royal Chauffeur Dubai — Design System
+ * Deep navy + luxurious gold. All colors in oklch.
+ */
+
+@theme inline {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-elevated: var(--navy-elevated);
+
+  --shadow-brand: 0 20px 50px -20px color-mix(in oklab, var(--brand) 45%, transparent);
+  --shadow-elegant: 0 30px 80px -30px oklch(0 0 0 / 0.6);
+}
+
+:root {
+  --radius: 0.9rem;
+
+  /* Ivory + Warm Gold + Charcoal — Dubai luxury on light */
+  --ink: #0d2144;
+  --ink-soft: #1b3260;
+  --cream: #faf7f1;
+  --cream-2: #f2ecdf;
+  --line: #e7e1d3;
+  --brand: #c69a3c;
+  --brand-soft: #e6c76b;
+  --brand-deep: #a37c22;
+
+  /* Legacy aliases used across the page — repointed for a light theme */
+  --navy-deep: #ffffff;
+  --navy: #faf7f1;
+  --navy-elevated: #ffffff;
+
+  --background: #ffffff;
+  --foreground: #0d2144;
+
+  --card: #ffffff;
+  --card-foreground: #0d2144;
+
+  --popover: #ffffff;
+  --popover-foreground: #0d2144;
+
+  --primary: #c69a3c;
+  --primary-foreground: #ffffff;
+
+  --secondary: #faf7f1;
+  --secondary-foreground: #0d2144;
+
+  --muted: #faf7f1;
+  --muted-foreground: #56514a;
+
+  --accent: #b8892e;
+  --accent-foreground: #ffffff;
+
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: #ece5d5;
+  --input: #e0d7c0;
+  --ring: #b8892e;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  ::selection { background: var(--brand); color: #ffffff; }
+}
+
+@utility brand-text { color: var(--brand); }
+@utility ink-text { color: var(--ink); }
+
+@utility hero-gradient {
+  background:
+    radial-gradient(ellipse 60% 55% at 85% 20%, color-mix(in oklab, #b8892e 10%, transparent), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 90%, color-mix(in oklab, #b8892e 6%, transparent), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #faf7f1 100%);
+}
+
+@utility gold-underline {
+  background-image: linear-gradient(90deg, var(--brand) 0%, var(--brand-soft) 100%);
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+
+
