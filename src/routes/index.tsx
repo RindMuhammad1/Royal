@@ -31,19 +31,33 @@ import dubaiMarina from "@/assets/dubai-marina.jpg";
 import dubaiBurj from "@/assets/dubai-burj.jpg";
 import dubaiChauffeur from "@/assets/dubai-chauffeur.jpg";
 import { fleet } from "@/lib/fleet";
-import logoAsset from "@/assets/royal-chauffeur-logo.png.asset.json";
+import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
 
-const HOME_TITLE =
-  "Royal Chauffeur Dubai | Car With Driver, Monthly Chauffeur & Airport Transfers";
+const HOME_TITLE = "Royal Chauffeur Dubai | Car With Driver, Monthly Chauffeur & Airport Transfers";
 const HOME_DESC =
   "Hire a professional chauffeur in Dubai — car with driver, monthly personal driver from AED 2,500, half-day under AED 450, full-day under AED 750. Airport transfers, school pickup and VIP transport, 24/7.";
 
 const HOME_FAQS = [
-  { q: "How quickly can you send a chauffeur?", a: "For same-day rides we usually confirm within 15–20 minutes. For airport, school or monthly bookings we recommend booking at least a day ahead." },
-  { q: "Do I use my car or one of yours?", a: "Both work. Book a car with driver from our fleet, or hire one of our chauffeurs to drive your own vehicle for the day or the month." },
-  { q: "Which parts of Dubai do you cover?", a: "All of Dubai — Downtown, Marina, JBR, Business Bay, Palm, DIFC, the airports and beyond. We also handle inter-emirate trips to Abu Dhabi, Sharjah and RAK." },
-  { q: "How does payment work?", a: "You pay after the ride. Cash to the driver, card via a secure link, or bank transfer — whatever's easiest for you." },
-  { q: "Are your chauffeurs comfortable with kids?", a: "Yes. Our school-run drivers are specifically chosen for their patience, safe driving and comfort around children. Booster seats available on request." },
+  {
+    q: "How quickly can you send a chauffeur?",
+    a: "For same-day rides we usually confirm within 15–20 minutes. For airport, school or monthly bookings we recommend booking at least a day ahead.",
+  },
+  {
+    q: "Do I use my car or one of yours?",
+    a: "Both work. Book a car with driver from our fleet, or hire one of our chauffeurs to drive your own vehicle for the day or the month.",
+  },
+  {
+    q: "Which parts of Dubai do you cover?",
+    a: "All of Dubai — Downtown, Marina, JBR, Business Bay, Palm, DIFC, the airports and beyond. We also handle inter-emirate trips to Abu Dhabi, Sharjah and RAK.",
+  },
+  {
+    q: "How does payment work?",
+    a: "You pay after the ride. Cash to the driver, card via a secure link, or bank transfer — whatever's easiest for you.",
+  },
+  {
+    q: "Are your chauffeurs comfortable with kids?",
+    a: "Yes. Our school-run drivers are specifically chosen for their patience, safe driving and comfort around children. Booster seats available on request.",
+  },
 ];
 
 const LOCAL_BUSINESS_JSONLD = {
@@ -154,7 +168,6 @@ const trustStats = [
   { value: "24/7", label: "Available" },
 ];
 
-
 const steps = [
   {
     n: "01",
@@ -177,9 +190,21 @@ const steps = [
 ];
 
 const values = [
-  { icon: ShieldCheck, title: "Chauffeurs You Can Trust", desc: "Every driver is UAE-licensed, background-checked and trained to handle families, VIPs and late-night runs with total discretion." },
-  { icon: BadgeCheck, title: "One Price, Told Upfront", desc: "We quote a flat rate before you book. No meters, no surge, no surprise charges when you step out of the car." },
-  { icon: Clock, title: "Always On Dubai Time", desc: "Airport landings, school bells, dinner reservations — our chauffeurs plan buffer time so you're never the one running late." },
+  {
+    icon: ShieldCheck,
+    title: "Chauffeurs You Can Trust",
+    desc: "Every driver is UAE-licensed, background-checked and trained to handle families, VIPs and late-night runs with total discretion.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "One Price, Told Upfront",
+    desc: "We quote a flat rate before you book. No meters, no surge, no surprise charges when you step out of the car.",
+  },
+  {
+    icon: Clock,
+    title: "Always On Dubai Time",
+    desc: "Airport landings, school bells, dinner reservations — our chauffeurs plan buffer time so you're never the one running late.",
+  },
 ];
 
 const packages: Array<{
@@ -230,20 +255,63 @@ const packages: Array<{
 ];
 
 const services = [
-  { icon: Plane, slug: "airport-transfer", title: "DXB & DWC Airport Transfers", desc: "Meet-and-greet arrivals with live flight tracking — we're at the kerb before your bags reach the belt." },
-  { icon: GraduationCap, slug: "school-run", title: "Daily School Run", desc: "A friendly, familiar chauffeur for the morning drop-off and afternoon pickup, five days a week." },
-  { icon: Car, slug: null, title: "Car With Driver — Hourly", desc: "Book a chauffeur-driven car by the hour for meetings, shopping days or a night out in Downtown." },
-  { icon: Briefcase, slug: null, title: "Corporate & VIP Transfers", desc: "Discreet, well-dressed chauffeurs for executives, delegations and business roadshows around the UAE." },
-  { icon: CalendarDays, slug: "monthly-driver", title: "Long-Term Monthly Driver", desc: "A single driver assigned to you and your car, month after month — a personal chauffeur without the HR." },
-  { icon: Users, slug: "dubai-to-abu-dhabi", title: "Dubai ↔ Abu Dhabi", desc: "Fixed-fare chauffeured runs between Dubai and Abu Dhabi — meetings, hotel transfers or day trips to Yas Island." },
+  {
+    icon: Plane,
+    slug: "airport-transfer",
+    title: "DXB & DWC Airport Transfers",
+    desc: "Meet-and-greet arrivals with live flight tracking — we're at the kerb before your bags reach the belt.",
+  },
+  {
+    icon: GraduationCap,
+    slug: "school-run",
+    title: "Daily School Run",
+    desc: "A friendly, familiar chauffeur for the morning drop-off and afternoon pickup, five days a week.",
+  },
+  {
+    icon: Car,
+    slug: null,
+    title: "Car With Driver — Hourly",
+    desc: "Book a chauffeur-driven car by the hour for meetings, shopping days or a night out in Downtown.",
+  },
+  {
+    icon: Briefcase,
+    slug: null,
+    title: "Corporate & VIP Transfers",
+    desc: "Discreet, well-dressed chauffeurs for executives, delegations and business roadshows around the UAE.",
+  },
+  {
+    icon: CalendarDays,
+    slug: "monthly-driver",
+    title: "Long-Term Monthly Driver",
+    desc: "A single driver assigned to you and your car, month after month — a personal chauffeur without the HR.",
+  },
+  {
+    icon: Users,
+    slug: "dubai-to-abu-dhabi",
+    title: "Dubai ↔ Abu Dhabi",
+    desc: "Fixed-fare chauffeured runs between Dubai and Abu Dhabi — meetings, hotel transfers or day trips to Yas Island.",
+  },
 ];
 
-
 const areas = [
-  "Downtown Dubai", "Dubai Marina", "JBR", "Business Bay", "DIFC",
-  "Palm Jumeirah", "Emirates Hills", "Arabian Ranches", "The Meadows",
-  "Al Barsha", "Jumeirah", "Mirdif", "Dubai Hills", "JVC", "Silicon Oasis",
-  "Dubai Creek Harbour", "DXB Airport", "DWC Airport",
+  "Downtown Dubai",
+  "Dubai Marina",
+  "JBR",
+  "Business Bay",
+  "DIFC",
+  "Palm Jumeirah",
+  "Emirates Hills",
+  "Arabian Ranches",
+  "The Meadows",
+  "Al Barsha",
+  "Jumeirah",
+  "Mirdif",
+  "Dubai Hills",
+  "JVC",
+  "Silicon Oasis",
+  "Dubai Creek Harbour",
+  "DXB Airport",
+  "DWC Airport",
 ];
 
 const faqs = HOME_FAQS;
@@ -279,17 +347,31 @@ function TopBar() {
     <div className="hidden md:block bg-[var(--ink)] text-white/85">
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-2.5 text-xs">
         <div className="flex items-center gap-6">
-          <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-brand transition-colors">
+          <a
+            href={`tel:${PHONE.replace(/\s/g, "")}`}
+            className="flex items-center gap-2 hover:text-brand transition-colors"
+          >
             <Phone className="h-3.5 w-3.5 text-brand" /> {PHONE}
           </a>
-          <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-brand transition-colors">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="flex items-center gap-2 hover:text-brand transition-colors"
+          >
             <Mail className="h-3.5 w-3.5 text-brand" /> {EMAIL}
           </a>
         </div>
         <div className="flex items-center gap-5">
           <span>Available 24/7 across Dubai</span>
           <div className="flex items-center gap-3 text-white/70">
-            <a href="https://www.facebook.com/share/1MdBvEg6Sh/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-brand transition-colors"><Facebook className="h-3.5 w-3.5" /></a>
+            <a
+              href="https://www.facebook.com/share/1MdBvEg6Sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-brand transition-colors"
+            >
+              <Facebook className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </div>
@@ -300,12 +382,18 @@ function TopBar() {
 function Logo() {
   return (
     <a href="#" className="flex items-center gap-3 group">
-      <img src={logoAsset.url} alt="Royal Chauffeur Dubai logo" className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40" />
+      <img
+        src={logoAsset}
+        alt="Royal Chauffeur Dubai logo"
+        className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
+      />
       <div className="leading-tight">
         <div className="font-display text-lg font-extrabold tracking-tight text-foreground">
           ROYAL <span className="text-brand">CHAUFFEUR</span>
         </div>
-        <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">Dubai</div>
+        <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
+          Dubai
+        </div>
       </div>
     </a>
   );
@@ -323,40 +411,44 @@ function Header() {
   ];
   return (
     <>
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
-
-      <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-        <Logo />
-        <nav className="hidden lg:flex items-center gap-9 text-sm font-medium">
-          {nav.map((n) => (
-            <a key={n.label} href={n.href} className="text-foreground/80 hover:text-brand transition-colors">
-              {n.label}
+      <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
+        <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
+          <Logo />
+          <nav className="hidden lg:flex items-center gap-9 text-sm font-medium">
+            {nav.map((n) => (
+              <a
+                key={n.label}
+                href={n.href}
+                className="text-foreground/80 hover:text-brand transition-colors"
+              >
+                {n.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-2">
+            <a
+              href={WHATSAPP}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--ink)] text-white px-5 py-3 text-sm font-bold hover:bg-brand transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="hidden sm:inline">Book on WhatsApp</span>
             </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2">
-          <a
-            href={WHATSAPP}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--ink)] text-white px-5 py-3 text-sm font-bold hover:bg-brand transition"
-           target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">Book on WhatsApp</span>
-          </a>
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground hover:border-brand hover:text-brand transition"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-foreground hover:border-brand hover:text-brand transition"
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
-      </div>
       </header>
       {open && (
         <div className="lg:hidden fixed inset-0 z-[60]">
-
           <div
             className="absolute inset-0 bg-[var(--ink)]/70 backdrop-blur-sm"
             onClick={() => setOpen(false)}
@@ -364,7 +456,11 @@ function Header() {
           <nav className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-[var(--ink)] text-white flex flex-col shadow-2xl">
             <div className="flex items-center justify-between px-6 h-20 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <img src={logoAsset.url} alt="Royal Chauffeur Dubai logo" className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40" />
+                <img
+                  src={logoAsset}
+                  alt="Royal Chauffeur Dubai logo"
+                  className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
+                />
                 <div className="font-display text-base font-extrabold">
                   ROYAL <span className="text-brand">CHAUFFEUR</span>
                 </div>
@@ -399,7 +495,9 @@ function Header() {
               <a
                 href={WHATSAPP}
                 className="flex items-center justify-center gap-2 rounded-full bg-brand text-[var(--ink)] px-5 py-3.5 text-sm font-bold"
-               target="_blank" rel="noopener noreferrer">
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MessageCircle className="h-4 w-4" /> Book on WhatsApp
               </a>
               <a
@@ -409,7 +507,13 @@ function Header() {
                 <Phone className="h-4 w-4 text-brand" /> {PHONE}
               </a>
               <div className="flex items-center justify-center gap-5 pt-2 text-white/60">
-                <a href="https://www.facebook.com/share/1MdBvEg6Sh/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-brand transition-colors">
+                <a
+                  href="https://www.facebook.com/share/1MdBvEg6Sh/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="hover:text-brand transition-colors"
+                >
                   <Facebook className="h-4 w-4" />
                 </a>
               </div>
@@ -446,7 +550,9 @@ function About() {
             {trustStats.map((s) => (
               <div key={s.label}>
                 <div className="font-display text-xl font-extrabold text-brand">{s.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/70">{s.label}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/70">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
@@ -459,8 +565,9 @@ function About() {
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             Royal Chauffeur Dubai started with one simple idea: getting around this city should feel
-            calm. We drive residents to work, children to school, executives to meetings and families
-            to the airport — with the same chauffeur, the same car and a price agreed in advance.
+            calm. We drive residents to work, children to school, executives to meetings and
+            families to the airport — with the same chauffeur, the same car and a price agreed in
+            advance.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             No apps, no meters, no queue. Just a message on WhatsApp and a driver who already knows
@@ -479,7 +586,9 @@ function About() {
           <a
             href={WHATSAPP}
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-[var(--ink)] text-white px-6 py-3.5 text-sm font-bold hover:bg-brand transition"
-           target="_blank" rel="noopener noreferrer">
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <MessageCircle className="h-4 w-4" /> Talk To Our Team
             <ArrowUpRight className="h-4 w-4" />
           </a>
@@ -488,7 +597,6 @@ function About() {
     </section>
   );
 }
-
 
 /* ------------------------------ HERO ------------------------------ */
 
@@ -565,9 +673,9 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-white/80 leading-relaxed">
-            Royal Chauffeur Dubai pairs you with a discreet, RTA-licensed driver — for
-            hourly errands, full-day chauffeur hire, monthly personal drivers, airport
-            transfers and daily school runs across the UAE.
+            Royal Chauffeur Dubai pairs you with a discreet, RTA-licensed driver — for hourly
+            errands, full-day chauffeur hire, monthly personal drivers, airport transfers and daily
+            school runs across the UAE.
           </p>
 
           {/* CTAs */}
@@ -575,7 +683,9 @@ function Hero() {
             <a
               href={WHATSAPP}
               className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <MessageCircle className="h-4 w-4" /> Book On WhatsApp
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -613,8 +723,12 @@ function Hero() {
                 <Crown className="h-5 w-5" />
               </span>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.28em] text-brand font-bold">Starting From</div>
-                <div className="font-display text-2xl font-extrabold text-white">AED 2,500 / month</div>
+                <div className="text-[10px] uppercase tracking-[0.28em] text-brand font-bold">
+                  Starting From
+                </div>
+                <div className="font-display text-2xl font-extrabold text-white">
+                  AED 2,500 / month
+                </div>
               </div>
             </div>
 
@@ -638,7 +752,9 @@ function Hero() {
             <a
               href={WHATSAPP}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand text-[var(--ink)] px-6 py-3.5 text-sm font-extrabold hover:bg-white transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get A Fixed Quote <ArrowUpRight className="h-4 w-4" />
             </a>
             <p className="mt-3 text-center text-[11px] text-white/50">
@@ -718,7 +834,9 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center gap-3">
       <span className="h-2 w-2 rounded-full bg-brand" />
-      <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">{children}</span>
+      <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
+        {children}
+      </span>
     </div>
   );
 }
@@ -741,7 +859,9 @@ function Fleet() {
           <a
             href={WHATSAPP}
             className="hidden md:inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-3 text-sm font-semibold text-foreground hover:border-brand hover:text-brand transition"
-           target="_blank" rel="noopener noreferrer">
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Reserve a Vehicle <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
@@ -773,8 +893,12 @@ function Fleet() {
                 </div>
               </div>
               <div className="p-6">
-                <div className="text-[10px] uppercase tracking-[0.24em] text-brand font-bold">{car.tier}</div>
-                <h3 className="mt-2 font-display text-xl font-extrabold text-foreground">{car.name}</h3>
+                <div className="text-[10px] uppercase tracking-[0.24em] text-brand font-bold">
+                  {car.tier}
+                </div>
+                <h3 className="mt-2 font-display text-xl font-extrabold text-foreground">
+                  {car.name}
+                </h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{car.short}</p>
                 <div className="mt-5 flex items-center gap-4 text-xs text-foreground/80">
                   <span className="inline-flex items-center gap-1.5">
@@ -795,7 +919,9 @@ function Fleet() {
                   <a
                     href={WHATSAPP}
                     className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--ink)] text-white px-4 py-3 text-sm font-bold hover:bg-brand transition"
-                   target="_blank" rel="noopener noreferrer">
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Book <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
@@ -815,7 +941,9 @@ function HowItWorks() {
     <section className="py-24 sm:py-28 bg-[var(--cream)]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-2xl mx-auto">
-          <div className="flex justify-center"><SectionEyebrow>Simple Process</SectionEyebrow></div>
+          <div className="flex justify-center">
+            <SectionEyebrow>Simple Process</SectionEyebrow>
+          </div>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
             How it <span className="brand-text italic">works</span>
           </h2>
@@ -833,7 +961,9 @@ function HowItWorks() {
               <div className="absolute -top-5 left-8 font-display text-4xl font-black text-brand">
                 {s.n}
               </div>
-              <h3 className="mt-4 font-display text-2xl font-extrabold text-foreground">{s.title}</h3>
+              <h3 className="mt-4 font-display text-2xl font-extrabold text-foreground">
+                {s.title}
+              </h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {s.tags.map((t) => (
@@ -918,8 +1048,16 @@ function Packages() {
                   Most Popular
                 </div>
               )}
-              <h3 className={`font-display text-xl font-extrabold leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}>{p.name}</h3>
-              <p className={`mt-2 text-sm ${p.highlight ? "text-white/70" : "text-muted-foreground"}`}>{p.tagline}</p>
+              <h3
+                className={`font-display text-xl font-extrabold leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}
+              >
+                {p.name}
+              </h3>
+              <p
+                className={`mt-2 text-sm ${p.highlight ? "text-white/70" : "text-muted-foreground"}`}
+              >
+                {p.tagline}
+              </p>
 
               <div className="mt-6 space-y-3">
                 {p.rows.map((r) => (
@@ -933,20 +1071,31 @@ function Packages() {
                           : "bg-[var(--cream)] border-border"
                     }`}
                   >
-                    <span className={`text-xs ${p.highlight ? "text-white/80" : "text-foreground/80"}`}>{r.label}</span>
-                    <span className={`text-sm font-extrabold ${r.strong ? "text-brand" : p.highlight ? "text-white" : "text-foreground"}`}>
+                    <span
+                      className={`text-xs ${p.highlight ? "text-white/80" : "text-foreground/80"}`}
+                    >
+                      {r.label}
+                    </span>
+                    <span
+                      className={`text-sm font-extrabold ${r.strong ? "text-brand" : p.highlight ? "text-white" : "text-foreground"}`}
+                    >
                       {r.price}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className={`mt-6 text-[11px] uppercase tracking-widest font-semibold ${p.highlight ? "text-white/50" : "text-muted-foreground"}`}>
+              <div
+                className={`mt-6 text-[11px] uppercase tracking-widest font-semibold ${p.highlight ? "text-white/50" : "text-muted-foreground"}`}
+              >
                 Included
               </div>
               <ul className="mt-3 space-y-2 flex-1">
                 {p.includes.map((f) => (
-                  <li key={f} className={`flex items-start gap-3 text-sm ${p.highlight ? "text-white/85" : "text-foreground/85"}`}>
+                  <li
+                    key={f}
+                    className={`flex items-start gap-3 text-sm ${p.highlight ? "text-white/85" : "text-foreground/85"}`}
+                  >
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand shrink-0">
                       <Check className="h-3 w-3" strokeWidth={3} />
                     </span>
@@ -962,7 +1111,9 @@ function Packages() {
                     ? "bg-brand text-white hover:bg-brand-soft"
                     : "bg-[var(--ink)] text-white hover:bg-brand"
                 }`}
-               target="_blank" rel="noopener noreferrer">
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book Now <ArrowUpRight className="h-4 w-4" />
               </a>
             </article>
@@ -983,13 +1134,16 @@ function Services() {
           <div className="max-w-2xl">
             <SectionEyebrow>Our Services</SectionEyebrow>
             <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
-              Chauffeured travel, <br /> <span className="brand-text italic">on your schedule.</span>
+              Chauffeured travel, <br />{" "}
+              <span className="brand-text italic">on your schedule.</span>
             </h2>
           </div>
           <a
             href={WHATSAPP}
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-[var(--ink)] text-white px-5 py-3 text-sm font-bold hover:bg-brand transition"
-           target="_blank" rel="noopener noreferrer">
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             More Services <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
@@ -1018,7 +1172,9 @@ function Services() {
                 <a
                   href={WHATSAPP}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-brand transition"
-                 target="_blank" rel="noopener noreferrer">
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book Now
                 </a>
               </div>
@@ -1038,7 +1194,9 @@ function FAQ() {
     <section className="py-24 sm:py-28 bg-[var(--cream)]">
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
-          <div className="flex justify-center"><SectionEyebrow>Need Help?</SectionEyebrow></div>
+          <div className="flex justify-center">
+            <SectionEyebrow>Need Help?</SectionEyebrow>
+          </div>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
             Frequently asked <span className="brand-text italic">questions</span>
           </h2>
@@ -1064,7 +1222,9 @@ function FAQ() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">{f.a}</div>
+                  <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">
+                    {f.a}
+                  </div>
                 )}
               </div>
             );
@@ -1082,13 +1242,21 @@ function CTA() {
     <section id="contact" className="py-24 sm:py-28 bg-background">
       <div className="mx-auto max-w-6xl px-6">
         <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-[var(--ink)] text-white p-10 sm:p-14">
-          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/25 blur-3xl" aria-hidden />
-          <div className="absolute -left-16 -bottom-16 h-72 w-72 rounded-full bg-brand/10 blur-3xl" aria-hidden />
+          <div
+            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand/25 blur-3xl"
+            aria-hidden
+          />
+          <div
+            className="absolute -left-16 -bottom-16 h-72 w-72 rounded-full bg-brand/10 blur-3xl"
+            aria-hidden
+          />
           <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-10 items-center">
             <div>
               <div className="inline-flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-brand" />
-                <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">Ready When You Are</span>
+                <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
+                  Ready When You Are
+                </span>
               </div>
               <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight">
                 Book your <span className="brand-text italic">chauffeur</span> in 30 seconds.
@@ -1101,7 +1269,9 @@ function CTA() {
                 <a
                   href={WHATSAPP}
                   className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-7 py-4 text-sm font-bold hover:bg-brand-soft transition"
-                 target="_blank" rel="noopener noreferrer">
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <MessageCircle className="h-4 w-4" /> WhatsApp Us
                 </a>
                 <a
@@ -1140,7 +1310,9 @@ function ContactRow({
         <Icon className="h-5 w-5" />
       </div>
       <div>
-        <div className="text-[11px] uppercase tracking-widest text-white/60 font-semibold">{title}</div>
+        <div className="text-[11px] uppercase tracking-widest text-white/60 font-semibold">
+          {title}
+        </div>
         <div className="text-sm font-bold text-white mt-0.5">{value}</div>
       </div>
     </div>
@@ -1155,17 +1327,23 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <a href="#" className="flex items-center gap-3 group">
-            <img src={logoAsset.url} alt="Royal Chauffeur Dubai logo" className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40" />
+            <img
+              src={logoAsset}
+              alt="Royal Chauffeur Dubai logo"
+              className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
+            />
             <div className="leading-tight">
               <div className="font-display text-lg font-extrabold tracking-tight text-white">
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
-              <div className="text-[10px] tracking-[0.3em] text-white/60 uppercase font-semibold">Dubai</div>
+              <div className="text-[10px] tracking-[0.3em] text-white/60 uppercase font-semibold">
+                Dubai
+              </div>
             </div>
           </a>
           <p className="mt-5 max-w-sm text-sm text-white/65 leading-relaxed">
-            Royal Chauffeur Dubai — professional car with driver services across Dubai.
-            Full-day, half-day and monthly plans, plus airport transfers and school pickup.
+            Royal Chauffeur Dubai — professional car with driver services across Dubai. Full-day,
+            half-day and monthly plans, plus airport transfers and school pickup.
           </p>
           <div className="mt-6 flex items-center gap-3">
             <a
@@ -1180,7 +1358,9 @@ function Footer() {
           </div>
         </div>
         <div>
-          <div className="text-[11px] uppercase tracking-[0.24em] text-brand font-bold">Services</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-brand font-bold">
+            Services
+          </div>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li>Car with Driver</li>
             <li>School Pickup & Drop-off</li>
@@ -1190,7 +1370,9 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-[11px] uppercase tracking-[0.24em] text-brand font-bold">Contact</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-brand font-bold">
+            Contact
+          </div>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li>{PHONE}</li>
             <li>{EMAIL}</li>
@@ -1208,9 +1390,6 @@ function Footer() {
     </footer>
   );
 }
-
-
-
 
 /* ------------------------------ AREA COVERAGE ------------------------------ */
 
@@ -1253,7 +1432,9 @@ function StickyMobileCTA() {
         <a
           href={WHATSAPP}
           className="inline-flex items-center justify-center gap-2 rounded-full bg-brand text-[var(--ink)] px-4 py-3 text-sm font-extrabold"
-         target="_blank" rel="noopener noreferrer">
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <MessageCircle className="h-4 w-4" /> WhatsApp
         </a>
         <a
