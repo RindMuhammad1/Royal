@@ -11,6 +11,7 @@ import {
   Check,
   ArrowUpRight,
   Facebook,
+  Instagram,
   BadgeCheck,
   ShieldCheck,
   Users,
@@ -36,9 +37,9 @@ import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { FloatingWhatsApp } from "@/components/site-chrome";
 
-const HOME_TITLE = "Royal Chauffeur Dubai | Car With Driver, Monthly Chauffeur & Airport Transfers";
+const HOME_TITLE = "Royal Chauffeur UAE | Car With Driver, Monthly Chauffeur & Airport Transfers";
 const HOME_DESC =
-  "Hire a professional chauffeur in Dubai — car with driver, monthly personal driver from AED 2,500, half-day under AED 450, full-day under AED 750. Airport transfers, school pickup and VIP transport, 24/7.";
+  "Hire a professional chauffeur in the UAE — car with driver, monthly personal driver from AED 2,500, half-day under AED 450, full-day under AED 750. Airport transfers, school pickup and VIP transport, 24/7.";
 
 const HOME_FAQS = [
   {
@@ -50,8 +51,8 @@ const HOME_FAQS = [
     a: "Both work. Book a car with driver from our fleet, or hire one of our chauffeurs to drive your own vehicle for the day or the month.",
   },
   {
-    q: "Which parts of Dubai do you cover?",
-    a: "All of Dubai — Downtown, Marina, JBR, Business Bay, Palm, DIFC, the airports and beyond. We also handle inter-emirate trips to Abu Dhabi, Sharjah and RAK.",
+    q: "Which parts of the UAE do you cover?",
+    a: "All of Dubai and the wider UAE — Downtown, Marina, JBR, Business Bay, Palm, DIFC, the airports and beyond. We also handle inter-emirate trips to Abu Dhabi, Sharjah and RAK.",
   },
   {
     q: "How does payment work?",
@@ -66,7 +67,7 @@ const HOME_FAQS = [
 const LOCAL_BUSINESS_JSONLD = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Royal Chauffeur Dubai",
+  name: "Royal Chauffeur UAE",
   description: HOME_DESC,
   areaServed: "Dubai, United Arab Emirates",
   telephone: "+971551988793",
@@ -96,13 +97,13 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "chauffeur service Dubai, car with driver Dubai, hire a driver Dubai, monthly driver Dubai, personal driver Dubai, airport transfer Dubai, school pickup driver Dubai, private chauffeur Dubai",
+          "chauffeur service UAE, car with driver UAE, hire a driver Dubai, monthly driver UAE, personal driver Dubai, airport transfer UAE, school pickup driver Dubai, private chauffeur UAE",
       },
-      { property: "og:title", content: "Royal Chauffeur Dubai — Luxury Car With Driver Service" },
+      { property: "og:title", content: "Royal Chauffeur UAE — Luxury Car With Driver Service" },
       {
         property: "og:description",
         content:
-          "Trusted Dubai chauffeurs by the hour, day or month. Airport pickups, school runs, and executive transfers. Book on WhatsApp in seconds.",
+          "Trusted UAE chauffeurs by the hour, day or month. Airport pickups, school runs, and executive transfers. Book on WhatsApp in seconds.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -117,21 +118,23 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP = "https://wa.me/971551988793";
 const PHONE = "+971 55 198 8793";
-const EMAIL = "royalchauffeurdubai@gmail.com";
+const EMAIL = "royalchauffeuruae@gmail.com";
+const FACEBOOK = "https://www.facebook.com/share/1MdBvEg6Sh/";
+const INSTAGRAM = "https://www.instagram.com/royalchauffeuruae";
 
 /* ------------------------------ DATA ------------------------------ */
 
 const heroSlides = [
   {
-    eyebrow: "Chauffeur Service In Dubai",
-    title: ["Your Personal", "Chauffeur In", "Dubai"],
+    eyebrow: "Chauffeur Service In The UAE",
+    title: ["Your Personal", "Chauffeur In", "The UAE"],
     accentIndex: 2,
     image: dubaiSzr,
     alt: "Sheikh Zayed Road at night — Dubai chauffeur service",
   },
   {
     eyebrow: "Car With Driver — Hourly Or Daily",
-    title: ["Hire A Driver", "For The Day", "In Dubai"],
+    title: ["Hire A Driver", "For The Day", "In The UAE"],
     accentIndex: 2,
     image: dubaiSkyline,
     alt: "Dubai skyline with Burj Khalifa — car with driver Dubai",
@@ -166,7 +169,7 @@ const heroBadges = [
 ];
 
 const trustStats = [
-  { value: "12 yrs", label: "On Dubai Roads" },
+  { value: "12 yrs", label: "On UAE Roads" },
   { value: "50+", label: "Trusted Chauffeurs" },
   { value: "24/7", label: "Available" },
 ];
@@ -205,7 +208,7 @@ const values = [
   },
   {
     icon: Clock,
-    title: "Always On Dubai Time",
+    title: "Always On UAE Time",
     desc: "Airport landings, school bells, dinner reservations — our chauffeurs plan buffer time so you're never the one running late.",
   },
 ];
@@ -364,16 +367,25 @@ function TopBar() {
           </a>
         </div>
         <div className="flex items-center gap-5">
-          <span>Available 24/7 across Dubai</span>
+          <span>Available 24/7 across the UAE</span>
           <div className="flex items-center gap-3 text-white/70">
             <a
-              href="https://www.facebook.com/share/1MdBvEg6Sh/"
+              href={FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
               className="hover:text-brand transition-colors"
             >
               <Facebook className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-brand transition-colors"
+            >
+              <Instagram className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
@@ -387,7 +399,7 @@ function Logo() {
     <a href="#" className="flex items-center gap-3 group">
       <img
         src={logoAsset}
-        alt="Royal Chauffeur Dubai logo"
+        alt="Royal Chauffeur UAE logo"
         className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
       />
       <div className="leading-tight">
@@ -395,7 +407,7 @@ function Logo() {
           ROYAL <span className="text-brand">CHAUFFEUR</span>
         </div>
         <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
-          Dubai
+          UAE
         </div>
       </div>
     </a>
@@ -461,7 +473,7 @@ function Header() {
               <div className="flex items-center gap-3">
                 <img
                   src={logoAsset}
-                  alt="Royal Chauffeur Dubai logo"
+                  alt="Royal Chauffeur UAE logo"
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
                 />
                 <div className="font-display text-base">
@@ -511,13 +523,22 @@ function Header() {
               </a>
               <div className="flex items-center justify-center gap-5 pt-2 text-white/60">
                 <a
-                  href="https://www.facebook.com/share/1MdBvEg6Sh/"
+                  href={FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="hover:text-brand transition-colors"
                 >
                   <Facebook className="h-4 w-4" />
+                </a>
+                <a
+                  href={INSTAGRAM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="hover:text-brand transition-colors"
+                >
+                  <Instagram className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -532,7 +553,7 @@ function Header() {
 
 function About() {
   const points = [
-    "A Dubai-based team, on the road here since 2013",
+    "A UAE-based team, on the road here since 2013",
     "UAE-licensed chauffeurs, background-checked and uniformed",
     "Owner-managed fleet — the same cars you see, every time",
     "Flat quotes agreed on WhatsApp before your ride starts",
@@ -543,7 +564,7 @@ function About() {
         <div className="relative">
           <img
             src={dubaiChauffeur}
-            alt="Royal Chauffeur Dubai driver beside a luxury car"
+            alt="Royal Chauffeur UAE driver beside a luxury car"
             loading="lazy"
             width={1200}
             height={900}
@@ -564,10 +585,10 @@ function About() {
         <div className="pt-8 lg:pt-0">
           <SectionEyebrow>About Us</SectionEyebrow>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
-            Dubai's private <br /> <span className="brand-text italic">chauffeur company</span>
+            The UAE's private <br /> <span className="brand-text italic">chauffeur company</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            Royal Chauffeur Dubai started with one simple idea: getting around this city should feel
+            Royal Chauffeur UAE started with one simple idea: getting around this city should feel
             calm. We drive residents to work, children to school, executives to meetings and
             families to the airport — with the same chauffeur, the same car and a price agreed in
             advance.
@@ -914,7 +935,7 @@ function Fleet() {
               <div className="relative aspect-[16/10] overflow-hidden bg-[var(--cream)]">
                 <img
                   src={car.img}
-                  alt={`${car.name} chauffeur car in Dubai`}
+                  alt={`${car.name} chauffeur car in the UAE`}
                   loading="lazy"
                   width={1200}
                   height={750}
@@ -1359,7 +1380,7 @@ function Footer() {
           <a href="#" className="flex items-center gap-3 group">
             <img
               src={logoAsset}
-              alt="Royal Chauffeur Dubai logo"
+              alt="Royal Chauffeur UAE logo"
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="leading-tight">
@@ -1367,23 +1388,32 @@ function Footer() {
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
               <div className="text-[10px] tracking-[0.3em] text-white/60 uppercase font-semibold">
-                Dubai
+                UAE
               </div>
             </div>
           </a>
           <p className="mt-5 max-w-sm text-sm text-white/65 leading-relaxed">
-            Royal Chauffeur Dubai — professional car with driver services across Dubai. Full-day,
+            Royal Chauffeur UAE — professional car with driver services across the UAE. Full-day,
             half-day and monthly plans, plus airport transfers and school pickup.
           </p>
           <div className="mt-6 flex items-center gap-3">
             <a
-              href="https://www.facebook.com/share/1MdBvEg6Sh/"
+              href={FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
               className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 hover:border-brand hover:text-brand transition"
             >
               <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 hover:border-brand hover:text-brand transition"
+            >
+              <Instagram className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -1413,7 +1443,7 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <div>© {new Date().getFullYear()} Royal Chauffeur Dubai. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Royal Chauffeur UAE. All rights reserved.</div>
           <div className="font-semibold text-brand">Luxury in every journey.</div>
         </div>
       </div>
@@ -1430,10 +1460,10 @@ function AreaCoverage() {
         <div className="max-w-2xl">
           <SectionEyebrow>Areas We Cover</SectionEyebrow>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
-            Every corner of <span className="brand-text italic">Dubai.</span>
+            Every corner of <span className="brand-text italic">the UAE.</span>
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Pickups and drop-offs across all major Dubai neighbourhoods and both airports — plus
+            Pickups and drop-offs across all major UAE neighbourhoods and both airports — plus
             inter-emirate trips to Abu Dhabi, Sharjah, Al Ain and Ras Al Khaimah.
           </p>
         </div>

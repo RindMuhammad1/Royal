@@ -4,6 +4,10 @@ import fleetMercedes from "@/assets/fleet-mercedes.jpg";
 import fleetPatrol from "@/assets/fleet-patrol.jpg";
 import fleetLexus from "@/assets/fleet-lexus.jpg";
 import fleetYukon from "@/assets/fleet-yukon.jpg";
+import fleetSienna from "@/assets/fleet-sienna.jpg";
+import fleetSedona from "@/assets/fleet-sedona.jpg";
+import fleetHiace from "@/assets/fleet-hiace.jpg";
+import fleetSportage from "@/assets/fleet-sportage.jpg";
 
 export type FleetCar = {
   slug: string;
@@ -169,6 +173,106 @@ export const fleet: FleetCar[] = [
       { label: "Luggage", value: "4 large bags" },
       { label: "Drive", value: "4WD" },
       { label: "Cabin", value: "Leather, 3 rows" },
+    ],
+  },
+  {
+    slug: "toyota-sienna",
+    name: "Toyota Sienna",
+    tier: "7-Seater Van",
+    seats: 7,
+    bags: 4,
+    img: fleetSienna,
+    short:
+      "A 7-seater van with sliding doors and a flat, quiet cabin — made for families and small groups.",
+    hero: "The Toyota Sienna is the easiest way to move seven people around Dubai. Sliding doors, a low step-in for kids and elders, and a boot that still swallows the airport luggage.",
+    highlights: [
+      "7 seats with easy sliding-door access",
+      "Rear AC vents for every row",
+      "Smooth, car-like ride quality",
+      "Great for family airport runs",
+    ],
+    bestFor: ["Family airport transfers", "School & group runs", "Full-day family days out"],
+    specs: [
+      { label: "Class", value: "7-Seater Van" },
+      { label: "Passengers", value: "Up to 7" },
+      { label: "Luggage", value: "4 large bags" },
+      { label: "Doors", value: "Power sliding" },
+      { label: "AC", value: "Tri-zone climate" },
+    ],
+  },
+  {
+    slug: "kia-sedona",
+    name: "Kia Sedona",
+    tier: "7-Seater Van",
+    seats: 7,
+    bags: 4,
+    img: fleetSedona,
+    short:
+      "Comfortable 7-seater MPV with generous legroom and a big boot for hotel and airport runs.",
+    hero: "The Kia Sedona is our value 7-seater — plenty of legroom in all three rows, a wide boot and a smooth highway ride for out-of-Dubai trips.",
+    highlights: [
+      "Three rows of adult-size seating",
+      "Wide boot for group luggage",
+      "Sliding doors for kerbside pickup",
+      "Comfortable on long UAE drives",
+    ],
+    bestFor: ["Group transfers", "Hotel pickups", "Day trips to Abu Dhabi or RAK"],
+    specs: [
+      { label: "Class", value: "7-Seater MPV" },
+      { label: "Passengers", value: "Up to 7" },
+      { label: "Luggage", value: "4 large bags" },
+      { label: "Doors", value: "Sliding rear doors" },
+      { label: "AC", value: "Dual-zone + rear vents" },
+    ],
+  },
+  {
+    slug: "toyota-hiace",
+    name: "Toyota Hi Ace",
+    tier: "Group Van",
+    seats: 11,
+    bags: 8,
+    img: fleetHiace,
+    short:
+      "High-roof passenger van for larger groups, staff transport and heavy luggage loads.",
+    hero: "The Toyota Hi Ace is built for numbers — a tall, airy cabin, rows of proper seats and space for everyone's bags. The practical choice for staff transport, events and large family groups.",
+    highlights: [
+      "Room for large groups in one vehicle",
+      "High roof, easy walk-in access",
+      "Powerful AC throughout the cabin",
+      "Huge luggage capacity",
+    ],
+    bestFor: ["Staff & crew transport", "Large group airport runs", "Events & conferences"],
+    specs: [
+      { label: "Class", value: "Group Passenger Van" },
+      { label: "Passengers", value: "Up to 11" },
+      { label: "Luggage", value: "8+ bags" },
+      { label: "Access", value: "Sliding side door" },
+      { label: "AC", value: "Full-cabin cooling" },
+    ],
+  },
+  {
+    slug: "kia-sportage",
+    name: "Kia Sportage",
+    tier: "Compact SUV",
+    seats: 4,
+    bags: 3,
+    img: fleetSportage,
+    short:
+      "A modern compact SUV — higher seating, easy parking and a smart look for city driving.",
+    hero: "The Kia Sportage gives you SUV seating height without the bulk. A comfortable, modern cabin for city errands, meetings and short intercity drives.",
+    highlights: [
+      "Raised seating for a better view",
+      "Modern touchscreen and connectivity",
+      "Easy to park at malls and towers",
+      "Efficient on daily Dubai driving",
+    ],
+    bestFor: ["Daily city driving", "Airport transfers (1–3 pax)", "Half-day bookings"],
+    specs: [
+      { label: "Class", value: "Compact SUV" },
+      { label: "Passengers", value: "Up to 4" },
+      { label: "Luggage", value: "3 large bags" },
+      { label: "Transmission", value: "Automatic" },
+      { label: "Cabin", value: "Leather-trim seating" },
     ],
   },
 ];

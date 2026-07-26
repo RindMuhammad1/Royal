@@ -12,10 +12,10 @@ export type ServiceDetail = {
 export const services: ServiceDetail[] = [
   {
     slug: "airport-transfer",
-    title: "Dubai Airport Transfer With Chauffeur",
+    title: "UAE Airport Transfer With Chauffeur",
     short:
       "DXB & DWC arrivals and departures with live flight tracking, meet-and-greet, and 60 minutes of free wait time.",
-    hero: "Airport Transfers In Dubai",
+    hero: "Airport Transfers In The UAE",
     intro:
       "Land in Dubai to a professional chauffeur waiting at the kerb, name-board ready. We track your flight in real time, adjust for delays, and get you to your hotel or home in a chilled, quiet cabin — no ride-hail queues, no surge pricing.",
     highlights: [
@@ -39,7 +39,7 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "school-run",
-    title: "Daily School Pickup & Drop-Off In Dubai",
+    title: "Daily School Pickup & Drop-Off In The UAE",
     short:
       "A trusted, familiar chauffeur for the morning drop-off and afternoon pickup — five days a week, same face, same car.",
     hero: "School Pickup & Drop-Off",
@@ -64,7 +64,7 @@ export const services: ServiceDetail[] = [
   },
   {
     slug: "monthly-driver",
-    title: "Monthly Personal Driver In Dubai",
+    title: "Monthly Personal Driver In The UAE",
     short:
       "Your own chauffeur, assigned exclusively to you and your car, month after month — from AED 2,500.",
     hero: "Monthly Personal Chauffeur",

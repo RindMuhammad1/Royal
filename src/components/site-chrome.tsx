@@ -1,12 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, Facebook, Menu, X } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
 const PHONE = "+971 55 198 8793";
-const EMAIL = "royalchauffeurdubai@gmail.com";
+const EMAIL = "royalchauffeuruae@gmail.com";
+const FACEBOOK = "https://www.facebook.com/share/1MdBvEg6Sh/";
+const INSTAGRAM = "https://www.instagram.com/royalchauffeuruae";
 
 export function FloatingWhatsApp() {
   return (
@@ -14,7 +16,7 @@ export function FloatingWhatsApp() {
       href={WHATSAPP}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with Royal Chauffeur Dubai on WhatsApp"
+      aria-label="Chat with Royal Chauffeur UAE on WhatsApp"
       className="group fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#25D366] pl-4 pr-5 py-4 sm:py-3.5 text-white shadow-[0_18px_40px_-12px_rgba(37,211,102,0.65)] transition hover:scale-105 active:scale-95"
     >
       <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping [animation-duration:2.6s] -z-10" />
@@ -53,16 +55,25 @@ export function SiteHeader() {
             </a>
           </div>
           <div className="flex items-center gap-5">
-            <span>Available 24/7 across Dubai</span>
+            <span>Available 24/7 across the UAE</span>
             <div className="flex items-center gap-3 text-white/70">
               <a
-                href="https://www.facebook.com/share/1MdBvEg6Sh/"
+                href={FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="hover:text-brand transition-colors"
               >
                 <Facebook className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="hover:text-brand transition-colors"
+              >
+                <Instagram className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -73,7 +84,7 @@ export function SiteHeader() {
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={logoAsset}
-              alt="Royal Chauffeur Dubai logo"
+              alt="Royal Chauffeur UAE logo"
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="leading-tight">
@@ -81,7 +92,7 @@ export function SiteHeader() {
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
               <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
-                Dubai
+                UAE
               </div>
             </div>
           </Link>
@@ -130,7 +141,7 @@ export function SiteHeader() {
               <div className="flex items-center gap-3">
                 <img
                   src={logoAsset}
-                  alt="Royal Chauffeur Dubai logo"
+                  alt="Royal Chauffeur UAE logo"
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
                 />
                 <div className="font-display text-base">
@@ -181,13 +192,22 @@ export function SiteHeader() {
               </a>
               <div className="flex items-center justify-center gap-5 pt-2 text-white/60">
                 <a
-                  href="https://www.facebook.com/share/1MdBvEg6Sh/"
+                  href={FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="hover:text-brand transition-colors"
                 >
                   <Facebook className="h-4 w-4" />
+                </a>
+                <a
+                  href={INSTAGRAM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="hover:text-brand transition-colors"
+                >
+                  <Instagram className="h-4 w-4" />
                 </a>
               </div>
             </div>
@@ -206,7 +226,7 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <img
               src={logoAsset}
-              alt="Royal Chauffeur Dubai logo"
+              alt="Royal Chauffeur UAE logo"
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="font-display text-lg text-white">
@@ -214,7 +234,7 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-sm">
-            Dubai's private chauffeur service for residents, families and executives. Luxury in
+            The UAE's private chauffeur service for residents, families and executives. Luxury in
             every journey.
           </p>
         </div>
@@ -233,6 +253,26 @@ export function SiteFooter() {
             </li>
             <li>Dubai, United Arab Emirates</li>
           </ul>
+          <div className="mt-4 flex items-center gap-3 text-white/70">
+            <a
+              href={FACEBOOK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-brand transition-colors"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-brand transition-colors"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+          </div>
         </div>
         <div>
           <div className="text-xs uppercase tracking-[0.28em] text-brand font-bold">Explore</div>
@@ -257,7 +297,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <div>© {new Date().getFullYear()} Royal Chauffeur Dubai. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Royal Chauffeur UAE. All rights reserved.</div>
           <div className="font-semibold text-brand">Luxury in every journey.</div>
         </div>
       </div>

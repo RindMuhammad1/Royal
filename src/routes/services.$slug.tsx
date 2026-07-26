@@ -22,13 +22,13 @@ export const Route = createFileRoute("/services/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Service not found — Royal Chauffeur Dubai" },
+          { title: "Service not found — Royal Chauffeur UAE" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { service } = loaderData;
-    const title = `${service.title} — Royal Chauffeur Dubai`;
+    const title = `${service.title} — Royal Chauffeur UAE`;
     const desc = service.short;
     const faqJsonLd = {
       "@context": "https://schema.org",

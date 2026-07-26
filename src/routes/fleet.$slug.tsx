@@ -26,14 +26,14 @@ export const Route = createFileRoute("/fleet/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "Vehicle not found — Royal Chauffeur Dubai" },
+          { title: "Vehicle not found — Royal Chauffeur UAE" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
     const { car } = loaderData;
-    const title = `${car.name} With Driver In Dubai — Royal Chauffeur`;
-    const desc = `Hire the ${car.name} (${car.tier}) with a professional chauffeur in Dubai. ${car.short} Book on WhatsApp in seconds.`;
+    const title = `${car.name} With Driver In The UAE — Royal Chauffeur`;
+    const desc = `Hire the ${car.name} (${car.tier}) with a professional chauffeur in the UAE. ${car.short} Book on WhatsApp in seconds.`;
     return {
       meta: [
         { title },
@@ -62,7 +62,7 @@ function FleetDetail() {
       <section className="relative overflow-hidden bg-[var(--ink)] text-white">
         <img
           src={car.img}
-          alt={`${car.name} chauffeur car in Dubai`}
+          alt={`${car.name} chauffeur car in the UAE`}
           width={1600}
           height={1200}
           className="absolute inset-0 h-full w-full object-cover opacity-70"
@@ -76,7 +76,7 @@ function FleetDetail() {
           </div>
           <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.98] tracking-tight max-w-3xl">
             {car.name} <br />
-            <span className="brand-text italic">with driver in Dubai</span>
+            <span className="brand-text italic">with driver in the UAE</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">
             {car.hero}
@@ -260,7 +260,7 @@ function FleetSlider({ cars }: { cars: FleetCar[] }) {
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={c.img}
-                  alt={`${c.name} chauffeur car in Dubai`}
+                  alt={`${c.name} chauffeur car in the UAE`}
                   loading="lazy"
                   width={1200}
                   height={800}
