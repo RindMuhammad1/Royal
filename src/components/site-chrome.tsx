@@ -1,11 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, MessageCircle, Facebook, Menu, X } from "lucide-react";
+import { Phone, Mail, Facebook, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
+import { WhatsAppIcon } from "./whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
 const PHONE = "+971 55 198 8793";
 const EMAIL = "royalchauffeurdubai@gmail.com";
+
+export function FloatingWhatsApp() {
+  return (
+    <a
+      href={WHATSAPP}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Royal Chauffeur Dubai on WhatsApp"
+      className="group fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#25D366] pl-4 pr-5 py-4 sm:py-3.5 text-white shadow-[0_18px_40px_-12px_rgba(37,211,102,0.65)] transition hover:scale-105 active:scale-95"
+    >
+      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping [animation-duration:2.6s] -z-10" />
+      <WhatsAppIcon className="h-6 w-6 shrink-0" />
+      <span className="hidden sm:inline text-sm font-bold whitespace-nowrap">Chat on WhatsApp</span>
+    </a>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -60,7 +77,7 @@ export function SiteHeader() {
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="leading-tight">
-              <div className="font-display text-lg font-extrabold tracking-tight text-foreground">
+              <div className="font-display text-lg tracking-tight text-foreground">
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
               <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
@@ -87,7 +104,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MessageCircle className="h-4 w-4" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span className="hidden sm:inline">Book on WhatsApp</span>
             </a>
             <button
@@ -116,7 +133,7 @@ export function SiteHeader() {
                   alt="Royal Chauffeur Dubai logo"
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
                 />
-                <div className="font-display text-base font-extrabold">
+                <div className="font-display text-base">
                   ROYAL <span className="text-brand">CHAUFFEUR</span>
                 </div>
               </div>
@@ -140,7 +157,7 @@ export function SiteHeader() {
                   className="group flex items-center gap-4 py-4 border-b border-white/10 last:border-0"
                 >
                   <span className="text-[11px] font-mono text-brand/70 w-6">0{i + 1}</span>
-                  <span className="font-display text-2xl font-bold text-white group-hover:text-brand transition-colors">
+                  <span className="font-display text-2xl text-white group-hover:text-brand transition-colors">
                     {n.label}
                   </span>
                 </Link>
@@ -154,7 +171,7 @@ export function SiteHeader() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+                <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
               <a
                 href={`tel:${PHONE.replace(/\s/g, "")}`}
@@ -192,7 +209,7 @@ export function SiteFooter() {
               alt="Royal Chauffeur Dubai logo"
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
-            <div className="font-display text-lg font-extrabold text-white">
+            <div className="font-display text-lg text-white">
               ROYAL <span className="text-brand">CHAUFFEUR</span>
             </div>
           </div>

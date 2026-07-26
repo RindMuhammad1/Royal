@@ -11,19 +11,20 @@ import {
   Check,
   ArrowUpRight,
   Facebook,
-  MessageCircle,
   BadgeCheck,
   ShieldCheck,
   Users,
   Briefcase,
   Sparkles,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   CalendarDays,
   Zap,
   Menu,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import dubaiSkyline from "@/assets/dubai-skyline.jpg";
 import dubaiSzr from "@/assets/dubai-szr.jpg";
@@ -32,6 +33,8 @@ import dubaiBurj from "@/assets/dubai-burj.jpg";
 import dubaiChauffeur from "@/assets/dubai-chauffeur.jpg";
 import { fleet } from "@/lib/fleet";
 import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
+import { FloatingWhatsApp } from "@/components/site-chrome";
 
 const HOME_TITLE = "Royal Chauffeur Dubai | Car With Driver, Monthly Chauffeur & Airport Transfers";
 const HOME_DESC =
@@ -388,7 +391,7 @@ function Logo() {
         className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
       />
       <div className="leading-tight">
-        <div className="font-display text-lg font-extrabold tracking-tight text-foreground">
+        <div className="font-display text-lg tracking-tight text-foreground">
           ROYAL <span className="text-brand">CHAUFFEUR</span>
         </div>
         <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
@@ -432,7 +435,7 @@ function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MessageCircle className="h-4 w-4" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span className="hidden sm:inline">Book on WhatsApp</span>
             </a>
             <button
@@ -461,7 +464,7 @@ function Header() {
                   alt="Royal Chauffeur Dubai logo"
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
                 />
-                <div className="font-display text-base font-extrabold">
+                <div className="font-display text-base">
                   ROYAL <span className="text-brand">CHAUFFEUR</span>
                 </div>
               </div>
@@ -484,7 +487,7 @@ function Header() {
                   className="group flex items-center gap-4 py-4 border-b border-white/10 last:border-0"
                 >
                   <span className="text-[11px] font-mono text-brand/70 w-6">0{i + 1}</span>
-                  <span className="font-display text-2xl font-bold text-white group-hover:text-brand transition-colors">
+                  <span className="font-display text-2xl text-white group-hover:text-brand transition-colors">
                     {n.label}
                   </span>
                 </a>
@@ -498,7 +501,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+                <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
               <a
                 href={`tel:${PHONE.replace(/\s/g, "")}`}
@@ -549,7 +552,7 @@ function About() {
           <div className="absolute -bottom-6 left-6 right-6 sm:right-auto rounded-2xl bg-[var(--ink)] text-white px-6 py-5 flex items-center gap-6">
             {trustStats.map((s) => (
               <div key={s.label}>
-                <div className="font-display text-xl font-extrabold text-brand">{s.value}</div>
+                <div className="font-display text-xl text-brand">{s.value}</div>
                 <div className="text-[10px] uppercase tracking-[0.2em] text-white/70">
                   {s.label}
                 </div>
@@ -560,7 +563,7 @@ function About() {
 
         <div className="pt-8 lg:pt-0">
           <SectionEyebrow>About Us</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
             Dubai's private <br /> <span className="brand-text italic">chauffeur company</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
@@ -589,7 +592,7 @@ function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <MessageCircle className="h-4 w-4" /> Talk To Our Team
+            <WhatsAppIcon className="h-4 w-4" /> Talk To Our Team
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
@@ -609,188 +612,194 @@ function Hero() {
   const slide = heroSlides[i];
 
   return (
-    <section className="relative overflow-hidden bg-[var(--ink)] text-white">
-      {/* Rotating cinematic background */}
-      <div className="absolute inset-0">
+    <section className="relative flex min-h-[92vh] w-full flex-col overflow-hidden bg-[var(--ink)] text-white">
+      {/* Full-bleed rotating background */}
+      <div className="absolute inset-0 z-0">
         {heroSlides.map((s, idx) => (
           <img
             key={idx}
             src={s.image}
             alt={s.alt}
             width={1920}
-            height={1080}
-            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out will-change-[opacity,transform]"
+            height={1280}
+            className="absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1600ms] ease-out will-change-[opacity,transform]"
             style={{
-              opacity: idx === i ? 1 : 0,
+              opacity: idx === i ? 0.55 : 0,
               transform: idx === i ? "scale(1.04)" : "scale(1.12)",
-              transitionProperty: "opacity, transform",
             }}
           />
         ))}
-        {/* Deep gradient scrims for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)]/95 via-[var(--ink)]/70 to-[var(--ink)]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-[var(--ink)]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)] via-[var(--ink)]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)] via-transparent to-transparent" />
       </div>
 
-      {/* Subtle grid overlay */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          maskImage: "radial-gradient(ellipse 60% 60% at 30% 45%, black, transparent 75%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-28 lg:pt-28 lg:pb-40 grid lg:grid-cols-[1.35fr_1fr] gap-12 items-center">
-        {/* Left column – editorial copy */}
-        <div className="max-w-2xl">
-          <div
-            key={`eye-${i}`}
-            className="inline-flex items-center gap-2 rounded-full border border-brand/50 bg-black/30 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-brand font-bold"
-            style={{ animation: "hero-fade 0.6s ease-out both" }}
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
-            {slide.eyebrow}
-          </div>
-
-          <h1
-            key={`title-${i}`}
-            className="mt-7 font-display text-white text-[42px] sm:text-6xl lg:text-[80px] font-extrabold leading-[0.98] tracking-tight"
-            style={{ animation: "hero-fade 0.8s ease-out both" }}
-          >
-            {slide.title.map((line, idx) => (
-              <span key={idx} className="block">
-                {idx === slide.accentIndex ? (
-                  <span className="brand-text italic font-display">{line}</span>
-                ) : (
-                  line
-                )}
-              </span>
-            ))}
-          </h1>
-
-          <p className="mt-6 max-w-xl text-lg text-white/80 leading-relaxed">
-            Royal Chauffeur Dubai pairs you with a discreet, RTA-licensed driver — for hourly
-            errands, full-day chauffeur hire, monthly personal drivers, airport transfers and daily
-            school runs across the UAE.
-          </p>
-
-          {/* CTAs */}
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href={WHATSAPP}
-              className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageCircle className="h-4 w-4" /> Book On WhatsApp
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </span>
-            </a>
-            <a
-              href={`tel:${PHONE.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 backdrop-blur px-6 py-4 text-sm font-semibold text-white hover:border-brand hover:text-brand transition"
-            >
-              <Phone className="h-4 w-4" /> {PHONE}
-            </a>
-          </div>
-
-          {/* Trust chips */}
-          <div className="mt-9 flex flex-wrap gap-2">
-            {heroBadges.map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 backdrop-blur px-3.5 py-2 text-[11px] font-semibold text-white"
+      {/* Main content */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-grow items-center px-6 pt-24 pb-20 lg:pt-32 lg:pb-24">
+        <div className="grid w-full gap-14 lg:grid-cols-2 lg:items-center">
+          {/* Left column – editorial copy */}
+          <div className="max-w-2xl">
+            <div className="mb-8 flex flex-wrap gap-3">
+              <span
+                key={`eye-${i}`}
+                className="flex items-center gap-2 rounded-full border border-brand/30 bg-[var(--espresso)]/40 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand backdrop-blur-md"
+                style={{ animation: "hero-fade 0.6s ease-out both" }}
               >
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/25 text-brand">
-                  <Icon className="h-3 w-3" />
-                </span>
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right column – floating booking card */}
-        <div className="relative">
-          <div className="relative rounded-3xl border border-white/15 bg-black/40 backdrop-blur-xl p-7 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand/20 text-brand">
-                <Crown className="h-5 w-5" />
+                <span className="h-1 w-1 rounded-full bg-brand shadow-[0_0_8px_var(--brand)]" />
+                {slide.eyebrow}
               </span>
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.28em] text-brand font-bold">
-                  Starting From
-                </div>
-                <div className="font-display text-2xl font-extrabold text-white">
-                  AED 2,500 / month
-                </div>
-              </div>
+              <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md">
+                RTA Licensed
+              </span>
             </div>
 
-            <div className="mt-6 space-y-3">
-              {[
-                { label: "Full-Day Chauffeur", price: "Under 750 AED" },
-                { label: "Half-Day Chauffeur", price: "Under 450 AED" },
-                { label: "Airport Transfer (DXB)", price: "From 120 AED" },
-                { label: "School Run (Monthly)", price: "On Request" },
-              ].map((r) => (
-                <div
-                  key={r.label}
-                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3"
-                >
-                  <span className="text-xs text-white/80">{r.label}</span>
-                  <span className="text-sm font-extrabold text-brand">{r.price}</span>
-                </div>
+            <div className="space-y-6">
+              <h1
+                key={`title-${i}`}
+                className="font-display text-[44px] leading-[1.05] tracking-tight sm:text-6xl lg:text-[80px]"
+                style={{ animation: "hero-fade 0.8s ease-out both" }}
+              >
+                {slide.title.map((line, idx) => (
+                  <span key={idx} className="block">
+                    {idx === slide.accentIndex ? (
+                      <span className="italic text-brand">{line}</span>
+                    ) : (
+                      line
+                    )}
+                  </span>
+                ))}
+              </h1>
+              <p className="max-w-md text-lg leading-relaxed text-white/70">
+                Discreet, RTA-licensed chauffeurs for hourly errands, full-day hire, monthly
+                personal drivers, airport transfers and the daily school run.
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-brand px-8 py-4 font-semibold text-[var(--ink)] transition-all hover:bg-white"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                WhatsApp Booking
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+              </a>
+              <a
+                href={`tel:${PHONE.replace(/\s/g, "")}`}
+                className="flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-brand hover:text-brand"
+              >
+                <Phone className="h-4 w-4" /> {PHONE}
+              </a>
+            </div>
+
+            {/* Slide dots */}
+            <div className="mt-10 flex items-center gap-2">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setI(idx)}
+                  aria-label={`Show slide ${idx + 1}`}
+                  className={`h-1 rounded-full transition-all ${
+                    idx === i ? "w-10 bg-brand" : "w-3 bg-white/30 hover:bg-white/60"
+                  }`}
+                />
               ))}
             </div>
-
-            <a
-              href={WHATSAPP}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand text-[var(--ink)] px-6 py-3.5 text-sm font-extrabold hover:bg-white transition"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get A Fixed Quote <ArrowUpRight className="h-4 w-4" />
-            </a>
-            <p className="mt-3 text-center text-[11px] text-white/50">
-              Reply in under 2 minutes · 24/7 across Dubai
-            </p>
           </div>
 
-          {/* Slide dots */}
-          <div className="mt-6 flex items-center justify-center gap-2">
-            {heroSlides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setI(idx)}
-                aria-label={`Show slide ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === i ? "w-10 bg-brand" : "w-3 bg-white/40 hover:bg-white/70"
-                }`}
-              />
-            ))}
+          {/* Right column – glass rate card */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="group relative w-full max-w-sm">
+              <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-b from-brand/20 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--ink)]/40 p-8 backdrop-blur-2xl shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]">
+                <div className="mb-10 space-y-1">
+                  <h2 className="font-display text-2xl text-white">Exclusive Rates</h2>
+                  <p className="text-xs uppercase tracking-widest text-white/40">
+                    Fixed, transparent pricing
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  {[
+                    {
+                      label: "Full Day Service",
+                      note: "10 Hours Coverage",
+                      price: "Under 750",
+                      unit: "AED",
+                    },
+                    {
+                      label: "Half Day Service",
+                      note: "5 Hours Coverage",
+                      price: "Under 450",
+                      unit: "AED",
+                    },
+                    {
+                      label: "Monthly Retainer",
+                      note: "Commuter Package",
+                      price: "From 2,500",
+                      unit: "AED",
+                    },
+                  ].map((r) => (
+                    <div
+                      key={r.label}
+                      className="flex items-end justify-between border-b border-white/5 pb-4"
+                    >
+                      <div className="space-y-1">
+                        <p className="text-sm text-white/70">{r.label}</p>
+                        <p className="text-[10px] uppercase tracking-tight text-white/30">
+                          {r.note}
+                        </p>
+                      </div>
+                      <p className="text-lg font-medium text-brand">
+                        {r.price} <span className="text-[10px] text-white/40">{r.unit}</span>
+                      </p>
+                    </div>
+                  ))}
+                  <div className="flex items-end justify-between pb-2">
+                    <p className="text-sm text-white/70">School Runs</p>
+                    <p className="text-xs italic text-white/40">On Request</p>
+                  </div>
+                </div>
+
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 flex w-full items-center justify-center gap-2 rounded-xl border border-brand/30 bg-gradient-to-r from-[var(--espresso)] to-[var(--ink)] py-4 text-[10px] font-bold uppercase tracking-[0.3em] text-white transition-all hover:border-brand"
+                >
+                  Get Instant Quote
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Trust bar */}
-      <div className="relative border-t border-white/10 bg-black/40 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-6 grid grid-cols-3 gap-4">
-          {trustStats.map((s) => (
-            <div key={s.label} className="text-center sm:text-left">
-              <div className="font-display text-2xl sm:text-3xl font-extrabold text-white">
-                {s.value}
+      {/* Bottom stats strip */}
+      <div className="relative z-10 w-full border-t border-white/5 bg-[var(--ink)]/80 py-8 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-wrap items-center justify-between gap-8 md:flex-nowrap">
+            {trustStats.map((s, idx) => (
+              <div key={s.label} className="flex items-center gap-8">
+                {idx > 0 && <div className="hidden h-8 w-px bg-white/10 md:block" />}
+                <div className="flex flex-col gap-1">
+                  <span className="font-display text-3xl tracking-tight text-white">{s.value}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
+                    {s.label}
+                  </span>
+                </div>
               </div>
-              <div className="mt-1 text-[10px] sm:text-[11px] uppercase tracking-widest text-white/60">
-                {s.label}
-              </div>
+            ))}
+            <div className="hidden h-8 w-px bg-white/10 md:block" />
+            <div className="flex flex-col gap-1">
+              {heroBadges.map(({ icon: Icon, label }) => (
+                <span key={label} className="flex items-center gap-2 text-[11px] text-white/60">
+                  <Icon className="h-3 w-3 text-brand" /> {label}
+                </span>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -832,9 +841,9 @@ function Marquee() {
 
 function SectionEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-3">
-      <span className="h-2 w-2 rounded-full bg-brand" />
-      <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
+    <div className="inline-flex items-center gap-4">
+      <span className="gold-rule w-10 shrink-0" />
+      <span className="text-[10px] uppercase tracking-[0.42em] text-brand font-bold">
         {children}
       </span>
     </div>
@@ -842,13 +851,22 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
 }
 
 function Fleet() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scrollBy = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const amount = Math.max(el.clientWidth * 0.8, 280);
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+  };
+
   return (
     <section id="fleet" className="py-24 sm:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Our Fleet</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
               Choose your <span className="brand-text italic">ride</span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl">
@@ -856,73 +874,87 @@ function Fleet() {
               regularly serviced and driven by a professional chauffeur.
             </p>
           </div>
-          <a
-            href={WHATSAPP}
-            className="hidden md:inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-3 text-sm font-semibold text-foreground hover:border-brand hover:text-brand transition"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reserve a Vehicle <ArrowUpRight className="h-4 w-4" />
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Previous cars"
+              onClick={() => scrollBy(-1)}
+              className="h-11 w-11 inline-flex items-center justify-center rounded-full border border-foreground/15 bg-background hover:border-brand hover:text-brand transition"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next cars"
+              onClick={() => scrollBy(1)}
+              className="h-11 w-11 inline-flex items-center justify-center rounded-full border border-foreground/15 bg-background hover:border-brand hover:text-brand transition"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <a
+              href={WHATSAPP}
+              className="hidden md:inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-3 text-sm font-semibold text-foreground hover:border-brand hover:text-brand transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reserve a Vehicle <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          ref={trackRef}
+          className="mt-14 flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
           {fleet.map((car) => (
             <article
               key={car.slug}
-              className="group relative rounded-2xl bg-background border border-border overflow-hidden transition hover:border-brand/50 hover:shadow-[0_20px_50px_-20px_rgba(184,137,46,0.25)] hover:-translate-y-1"
+              className="group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] bg-background border border-brand/20 overflow-hidden shadow-[0_20px_50px_rgba(35,22,2,0.05)] transition duration-300 hover:border-brand/50 hover:shadow-[0_28px_60px_rgba(35,22,2,0.12)]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-[var(--cream)]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--cream)]">
                 <img
                   src={car.img}
                   alt={`${car.name} chauffeur car in Dubai`}
                   loading="lazy"
                   width={1200}
-                  height={800}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  height={750}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                {/* Hover overlay with View Details */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)]/80 via-[var(--ink)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                  <Link
-                    to="/fleet/$slug"
-                    params={{ slug: car.slug }}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-5 py-3 text-sm font-extrabold shadow-lg translate-y-3 group-hover:translate-y-0 transition-transform"
-                  >
-                    View Details <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                <div className="absolute top-4 left-4">
+                  <span className="inline-block bg-[var(--espresso)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand">
+                    {car.tier}
+                  </span>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="text-[10px] uppercase tracking-[0.24em] text-brand font-bold">
-                  {car.tier}
-                </div>
-                <h3 className="mt-2 font-display text-xl font-extrabold text-foreground">
-                  {car.name}
-                </h3>
+
+              <div className="p-7 sm:p-8">
+                <h3 className="font-display text-2xl text-foreground">{car.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{car.short}</p>
-                <div className="mt-5 flex items-center gap-4 text-xs text-foreground/80">
-                  <span className="inline-flex items-center gap-1.5">
-                    <Users className="h-4 w-4 text-brand" /> {car.seats} Seats
+
+                <div className="mt-6 mb-8 flex items-center gap-6 border-y border-brand/10 py-4">
+                  <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-foreground">
+                    <Users className="h-4 w-4 text-brand" strokeWidth={1.5} /> {car.seats} Seats
                   </span>
-                  <span className="inline-flex items-center gap-1.5">
-                    <Briefcase className="h-4 w-4 text-brand" /> {car.bags} Bags
+                  <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-foreground">
+                    <Briefcase className="h-4 w-4 text-brand" strokeWidth={1.5} /> {car.bags} Bags
                   </span>
                 </div>
-                <div className="mt-6 flex items-center gap-2">
+
+                <div className="flex items-center justify-between gap-4">
                   <Link
                     to="/fleet/$slug"
                     params={{ slug: car.slug }}
-                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-foreground/15 px-4 py-3 text-sm font-bold text-foreground hover:border-brand hover:text-brand transition"
+                    className="shrink-0 border-b border-transparent pb-1 text-xs font-semibold uppercase tracking-[0.15em] text-foreground transition-colors hover:border-brand hover:text-brand"
                   >
                     View Details
                   </Link>
                   <a
                     href={WHATSAPP}
-                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--ink)] text-white px-4 py-3 text-sm font-bold hover:bg-brand transition"
+                    className="flex-1 inline-flex items-center justify-center gap-2 bg-brand px-5 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg shadow-brand/20 transition-all duration-300 hover:bg-[var(--espresso)]"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Book <ArrowUpRight className="h-4 w-4" />
+                    <WhatsAppIcon className="h-4 w-4" /> Book
                   </a>
                 </div>
               </div>
@@ -944,7 +976,7 @@ function HowItWorks() {
           <div className="flex justify-center">
             <SectionEyebrow>Simple Process</SectionEyebrow>
           </div>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
             How it <span className="brand-text italic">works</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -961,9 +993,7 @@ function HowItWorks() {
               <div className="absolute -top-5 left-8 font-display text-4xl font-black text-brand">
                 {s.n}
               </div>
-              <h3 className="mt-4 font-display text-2xl font-extrabold text-foreground">
-                {s.title}
-              </h3>
+              <h3 className="mt-4 font-display text-2xl text-foreground">{s.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {s.tags.map((t) => (
@@ -991,7 +1021,7 @@ function Values() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <SectionEyebrow>Why Royal Chauffeur</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
             Built around <br /> <span className="brand-text italic">your day</span>
           </h2>
         </div>
@@ -1005,7 +1035,7 @@ function Values() {
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--ink)] text-brand">
                 <Icon className="h-6 w-6" strokeWidth={2.2} />
               </div>
-              <h3 className="mt-6 font-display text-xl font-extrabold text-foreground">{title}</h3>
+              <h3 className="mt-6 font-display text-xl text-foreground">{title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </article>
           ))}
@@ -1024,7 +1054,7 @@ function Packages() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Packages & Pricing</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
               Transparent <span className="brand-text italic">pricing</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -1049,7 +1079,7 @@ function Packages() {
                 </div>
               )}
               <h3
-                className={`font-display text-xl font-extrabold leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}
+                className={`font-display text-xl leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}
               >
                 {p.name}
               </h3>
@@ -1133,7 +1163,7 @@ function Services() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Our Services</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
               Chauffeured travel, <br />{" "}
               <span className="brand-text italic">on your schedule.</span>
             </h2>
@@ -1157,7 +1187,7 @@ function Services() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 font-display text-xl font-extrabold text-foreground">{title}</h3>
+              <h3 className="mt-6 font-display text-xl text-foreground">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
               <div className="mt-5 flex items-center gap-4">
                 {slug ? (
@@ -1197,7 +1227,7 @@ function FAQ() {
           <div className="flex justify-center">
             <SectionEyebrow>Need Help?</SectionEyebrow>
           </div>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight text-foreground">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
             Frequently asked <span className="brand-text italic">questions</span>
           </h2>
         </div>
@@ -1258,7 +1288,7 @@ function CTA() {
                   Ready When You Are
                 </span>
               </div>
-              <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight">
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
                 Book your <span className="brand-text italic">chauffeur</span> in 30 seconds.
               </h2>
               <p className="mt-4 text-white/75 max-w-lg">
@@ -1272,7 +1302,7 @@ function CTA() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Us
+                  <WhatsAppIcon className="h-4 w-4" /> WhatsApp Us
                 </a>
                 <a
                   href={`tel:${PHONE.replace(/\s/g, "")}`}
@@ -1333,7 +1363,7 @@ function Footer() {
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="leading-tight">
-              <div className="font-display text-lg font-extrabold tracking-tight text-white">
+              <div className="font-display text-lg tracking-tight text-white">
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
               <div className="text-[10px] tracking-[0.3em] text-white/60 uppercase font-semibold">
@@ -1399,7 +1429,7 @@ function AreaCoverage() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl">
           <SectionEyebrow>Areas We Cover</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl font-extrabold leading-tight">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
             Every corner of <span className="brand-text italic">Dubai.</span>
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -1423,27 +1453,8 @@ function AreaCoverage() {
   );
 }
 
-/* ------------------------------ STICKY MOBILE CTA ------------------------------ */
+/* ------------------------------ FLOATING WHATSAPP ------------------------------ */
 
 function StickyMobileCTA() {
-  return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-border bg-background/95 backdrop-blur">
-      <div className="grid grid-cols-2 gap-2 p-3">
-        <a
-          href={WHATSAPP}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-brand text-[var(--ink)] px-4 py-3 text-sm font-extrabold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <MessageCircle className="h-4 w-4" /> WhatsApp
-        </a>
-        <a
-          href={`tel:${PHONE.replace(/\s/g, "")}`}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--ink)] text-white px-4 py-3 text-sm font-bold"
-        >
-          <Phone className="h-4 w-4" /> Call Now
-        </a>
-      </div>
-    </div>
-  );
+  return <FloatingWhatsApp />;
 }

@@ -6,12 +6,12 @@ import {
   ChevronRight,
   Briefcase,
   Check,
-  MessageCircle,
   Phone,
   Users,
 } from "lucide-react";
 import { fleet, getCar, type FleetCar } from "@/lib/fleet";
-import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, FloatingWhatsApp } from "@/components/site-chrome";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
 const PHONE = "+971 55 198 8793";
@@ -74,7 +74,7 @@ function FleetDetail() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             {car.tier}
           </div>
-          <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.98] tracking-tight max-w-3xl">
+          <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.98] tracking-tight max-w-3xl">
             {car.name} <br />
             <span className="brand-text italic">with driver in Dubai</span>
           </h1>
@@ -96,7 +96,7 @@ function FleetDetail() {
               href={WHATSAPP}
               className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
              target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> Reserve This {car.name}
+              <WhatsAppIcon className="h-4 w-4" /> Reserve This {car.name}
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
@@ -118,7 +118,7 @@ function FleetDetail() {
             <div className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
               Onboard Experience
             </div>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-extrabold leading-tight">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-tight">
               What's included in <span className="brand-text italic">every drive</span>
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -185,7 +185,7 @@ function FleetDetail() {
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-3xl border border-brand/30 bg-[var(--ink)] text-white p-10 sm:p-14 text-center">
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl leading-tight">
               Ready to ride in the <span className="brand-text italic">{car.name}?</span>
             </h2>
             <p className="mt-3 text-white/75 max-w-lg mx-auto">
@@ -195,13 +195,14 @@ function FleetDetail() {
               href={WHATSAPP}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
              target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+              <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </section>
       <SiteFooter />
+      <FloatingWhatsApp />
     </div>
   );
 }
@@ -222,7 +223,7 @@ function FleetSlider({ cars }: { cars: FleetCar[] }) {
     <section className="py-20 bg-[var(--cream)]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex items-end justify-between gap-6 flex-wrap">
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl leading-tight">
             Other cars in <span className="brand-text italic">the fleet</span>
           </h2>
           <div className="flex items-center gap-3">
@@ -270,7 +271,7 @@ function FleetSlider({ cars }: { cars: FleetCar[] }) {
                 <div className="text-[10px] uppercase tracking-[0.24em] text-brand font-bold">
                   {c.tier}
                 </div>
-                <h3 className="mt-2 font-display text-xl font-extrabold">{c.name}</h3>
+                <h3 className="mt-2 font-display text-xl">{c.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.short}</p>
                 <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand">
                   View details <ArrowUpRight className="h-4 w-4" />

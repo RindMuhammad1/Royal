@@ -10,7 +10,7 @@
  */
 
 @theme inline {
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Marcellus", "Times New Roman", ui-serif, Georgia, serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -41,6 +41,8 @@
   --color-ring: var(--ring);
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
+  --color-espresso: var(--espresso);
+  --color-neutral: var(--neutral);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-navy-elevated: var(--navy-elevated);
@@ -52,47 +54,49 @@
 :root {
   --radius: 0.9rem;
 
-  /* Ivory + Warm Gold + Charcoal — Dubai luxury on light */
-  --ink: #0d2144;
-  --ink-soft: #1b3260;
-  --cream: #faf7f1;
-  --cream-2: #f2ecdf;
-  --line: #e7e1d3;
-  --brand: #c69a3c;
-  --brand-soft: #e6c76b;
-  --brand-deep: #a37c22;
+  /* Brand palette: ink #101828 · gold #b8892e · espresso #231602 · neutral #787778 */
+  --ink: #101828;
+  --ink-soft: #1d2739;
+  --espresso: #231602;
+  --neutral: #787778;
+  --cream: #f6f4f0;
+  --cream-2: #ece8e1;
+  --line: #ddd9d2;
+  --brand: #b8892e;
+  --brand-soft: #d9ab52;
+  --brand-deep: #231602;
 
   /* Legacy aliases used across the page — repointed for a light theme */
   --navy-deep: #ffffff;
-  --navy: #faf7f1;
+  --navy: #f6f4f0;
   --navy-elevated: #ffffff;
 
   --background: #ffffff;
-  --foreground: #0d2144;
+  --foreground: #101828;
 
   --card: #ffffff;
-  --card-foreground: #0d2144;
+  --card-foreground: #101828;
 
   --popover: #ffffff;
-  --popover-foreground: #0d2144;
+  --popover-foreground: #101828;
 
-  --primary: #c69a3c;
+  --primary: #101828;
   --primary-foreground: #ffffff;
 
-  --secondary: #faf7f1;
-  --secondary-foreground: #0d2144;
+  --secondary: #b8892e;
+  --secondary-foreground: #ffffff;
 
-  --muted: #faf7f1;
-  --muted-foreground: #56514a;
+  --muted: #f6f4f0;
+  --muted-foreground: #787778;
 
-  --accent: #b8892e;
+  --accent: #231602;
   --accent-foreground: #ffffff;
 
   --destructive: oklch(0.62 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: #ece5d5;
-  --input: #e0d7c0;
+  --border: #e6e2db;
+  --input: #ddd9d2;
   --ring: #b8892e;
 }
 
@@ -105,7 +109,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
   ::selection { background: var(--brand); color: #ffffff; }
 }
 
@@ -115,13 +119,26 @@
 @utility hero-gradient {
   background:
     radial-gradient(ellipse 60% 55% at 85% 20%, color-mix(in oklab, #b8892e 10%, transparent), transparent 70%),
-    radial-gradient(ellipse 50% 60% at 10% 90%, color-mix(in oklab, #b8892e 6%, transparent), transparent 70%),
-    linear-gradient(180deg, #ffffff 0%, #faf7f1 100%);
+    radial-gradient(ellipse 50% 60% at 10% 90%, color-mix(in oklab, #101828 6%, transparent), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f7f4ed 100%);
 }
 
 @utility gold-underline {
   background-image: linear-gradient(90deg, var(--brand) 0%, var(--brand-soft) 100%);
 }
+
+/* Fine gold rule used as a section marker — a signature of this brand */
+@utility gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--brand) 0%, color-mix(in oklab, var(--brand) 10%, transparent) 100%);
+}
+
+/* Subtle woven texture for the deep navy panels */
+@utility ink-weave {
+  background-image:
+    repeating-linear-gradient(135deg, color-mix(in oklab, #b8892e 5%, transparent) 0 1px, transparent 1px 14px);
+}
+
 
 @keyframes hero-fade {
   from { opacity: 0; transform: translateY(10px); }

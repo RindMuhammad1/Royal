@@ -3,11 +3,11 @@ import {
   ArrowLeft,
   ArrowUpRight,
   Check,
-  MessageCircle,
   Phone,
 } from "lucide-react";
 import { services, getService, type ServiceDetail } from "@/lib/services";
-import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { SiteHeader, SiteFooter, FloatingWhatsApp } from "@/components/site-chrome";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
 const PHONE = "+971 55 198 8793";
@@ -80,7 +80,7 @@ function ServiceDetailPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             {service.hero}
           </div>
-          <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[0.98] tracking-tight max-w-4xl">
+          <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.98] tracking-tight max-w-4xl">
             {service.title.split(" ").slice(0, -2).join(" ")}{" "}
             <span className="brand-text italic">
               {service.title.split(" ").slice(-2).join(" ")}
@@ -94,7 +94,7 @@ function ServiceDetailPage() {
               href={WHATSAPP}
               className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
              target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> Book On WhatsApp
+              <WhatsAppIcon className="h-4 w-4" /> Book On WhatsApp
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
@@ -115,7 +115,7 @@ function ServiceDetailPage() {
             <div className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
               What's Included
             </div>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-extrabold leading-tight">
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-tight">
               Everything in <span className="brand-text italic">the service</span>
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -163,13 +163,13 @@ function ServiceDetailPage() {
           <div className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">
             Frequently Asked
           </div>
-          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight">
+          <h2 className="mt-3 font-display text-4xl leading-tight">
             Questions about <span className="brand-text italic">{service.hero.toLowerCase()}</span>
           </h2>
           <div className="mt-10 space-y-4">
             {service.faqs.map((f) => (
               <div key={f.q} className="rounded-2xl border border-border bg-background p-6">
-                <div className="font-display text-lg font-bold text-foreground">{f.q}</div>
+                <div className="font-display text-lg text-foreground">{f.q}</div>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
               </div>
             ))}
@@ -180,7 +180,7 @@ function ServiceDetailPage() {
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-end justify-between gap-6 flex-wrap">
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl leading-tight">
               Other <span className="brand-text italic">services</span>
             </h2>
             <Link
@@ -202,7 +202,7 @@ function ServiceDetailPage() {
                 <div className="text-[10px] uppercase tracking-[0.24em] text-brand font-bold">
                   {s.hero}
                 </div>
-                <h3 className="mt-3 font-display text-xl font-extrabold">{s.title}</h3>
+                <h3 className="mt-3 font-display text-xl">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   {s.short}
                 </p>
@@ -215,6 +215,7 @@ function ServiceDetailPage() {
         </div>
       </section>
       <SiteFooter />
+      <FloatingWhatsApp />
     </div>
   );
 }
