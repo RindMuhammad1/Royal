@@ -1,16 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  Check,
-  Phone,
-} from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { services, getService, type ServiceDetail } from "@/lib/services";
 import { SiteHeader, SiteFooter, FloatingWhatsApp } from "@/components/site-chrome";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
-const PHONE = "+971 55 198 8793";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -67,7 +61,6 @@ function ServiceDetailPage() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-
       <section className="bg-[var(--ink)] text-white">
         <div className="mx-auto max-w-7xl px-6 pt-16 pb-20 lg:pt-20 lg:pb-24">
           <Link
@@ -86,24 +79,18 @@ function ServiceDetailPage() {
               {service.title.split(" ").slice(-2).join(" ")}
             </span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">
-            {service.intro}
-          </p>
+          <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">{service.intro}</p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href={WHATSAPP}
               className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon className="h-4 w-4" /> Book On WhatsApp
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
-            </a>
-            <a
-              href={`tel:${PHONE.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 backdrop-blur px-6 py-4 text-sm font-semibold text-white hover:border-brand hover:text-brand transition"
-            >
-              <Phone className="h-4 w-4" /> {PHONE}
             </a>
           </div>
         </div>
@@ -148,7 +135,9 @@ function ServiceDetailPage() {
             <a
               href={WHATSAPP}
               className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] text-white px-6 py-3.5 text-sm font-bold hover:bg-brand transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get A Fixed Quote <ArrowUpRight className="h-4 w-4" />
             </a>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -203,9 +192,7 @@ function ServiceDetailPage() {
                   {s.hero}
                 </div>
                 <h3 className="mt-3 font-display text-xl">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  {s.short}
-                </p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.short}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand">
                   View details <ArrowUpRight className="h-4 w-4" />
                 </span>

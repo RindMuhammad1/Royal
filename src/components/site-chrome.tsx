@@ -1,11 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, Facebook, Instagram, Menu, X } from "lucide-react";
+import { Mail, Facebook, Instagram, Menu, X } from "lucide-react";
 import logoAsset from "@/assets/royal-chauffeur-logo.jpg";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
-const PHONE = "+971 55 198 8793";
 const EMAIL = "royalchauffeuruae@gmail.com";
 const FACEBOOK = "https://www.facebook.com/share/1MdBvEg6Sh/";
 const INSTAGRAM = "https://www.instagram.com/royalchauffeuruae";
@@ -41,12 +40,6 @@ export function SiteHeader() {
       <div className="hidden md:block bg-[var(--ink)] text-white/85">
         <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-2.5 text-xs">
           <div className="flex items-center gap-6">
-            <a
-              href={`tel:${PHONE.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 hover:text-brand transition-colors"
-            >
-              <Phone className="h-3.5 w-3.5 text-brand" /> {PHONE}
-            </a>
             <a
               href={`mailto:${EMAIL}`}
               className="flex items-center gap-2 hover:text-brand transition-colors"
@@ -184,12 +177,6 @@ export function SiteHeader() {
               >
                 <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
-              <a
-                href={`tel:${PHONE.replace(/\s/g, "")}`}
-                className="flex items-center justify-center gap-2 rounded-full border border-white/25 text-white px-5 py-3.5 text-sm font-bold"
-              >
-                <Phone className="h-4 w-4 text-brand" /> {PHONE}
-              </a>
               <div className="flex items-center justify-center gap-5 pt-2 text-white/60">
                 <a
                   href={FACEBOOK}
@@ -241,11 +228,6 @@ export function SiteFooter() {
         <div>
           <div className="text-xs uppercase tracking-[0.28em] text-brand font-bold">Contact</div>
           <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="hover:text-brand">
-                {PHONE}
-              </a>
-            </li>
             <li>
               <a href={`mailto:${EMAIL}`} className="hover:text-brand">
                 {EMAIL}

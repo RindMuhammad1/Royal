@@ -1,20 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useRef } from "react";
-import {
-  ArrowUpRight,
-  ChevronLeft,
-  ChevronRight,
-  Briefcase,
-  Check,
-  Phone,
-  Users,
-} from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Briefcase, Check, Users } from "lucide-react";
 import { fleet, getCar, type FleetCar } from "@/lib/fleet";
 import { SiteHeader, SiteFooter, FloatingWhatsApp } from "@/components/site-chrome";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 
 const WHATSAPP = "https://wa.me/971551988793";
-const PHONE = "+971 55 198 8793";
 
 export const Route = createFileRoute("/fleet/$slug")({
   loader: ({ params }) => {
@@ -56,8 +47,6 @@ function FleetDetail() {
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
 
-
-
       {/* Hero of car */}
       <section className="relative overflow-hidden bg-[var(--ink)] text-white">
         <img
@@ -70,7 +59,6 @@ function FleetDetail() {
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)] via-[var(--ink)]/70 to-[var(--ink)]/20" />
         <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-24 lg:pt-20 lg:pb-32">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand/50 bg-black/30 backdrop-blur px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-brand font-bold">
-
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             {car.tier}
           </div>
@@ -78,9 +66,7 @@ function FleetDetail() {
             {car.name} <br />
             <span className="brand-text italic">with driver in the UAE</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">
-            {car.hero}
-          </p>
+          <p className="mt-6 max-w-2xl text-lg text-white/80 leading-relaxed">{car.hero}</p>
 
           <div className="mt-8 flex flex-wrap gap-6 text-sm">
             <span className="inline-flex items-center gap-2 text-white/85">
@@ -95,17 +81,13 @@ function FleetDetail() {
             <a
               href={WHATSAPP}
               className="group inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon className="h-4 w-4" /> Reserve This {car.name}
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--ink)] text-brand transition-transform group-hover:rotate-45">
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </span>
-            </a>
-            <a
-              href={`tel:${PHONE.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 backdrop-blur px-6 py-4 text-sm font-semibold text-white hover:border-brand hover:text-brand transition"
-            >
-              <Phone className="h-4 w-4" /> {PHONE}
             </a>
           </div>
         </div>
@@ -167,7 +149,9 @@ function FleetDetail() {
             <a
               href={WHATSAPP}
               className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--ink)] text-white px-6 py-3.5 text-sm font-bold hover:bg-brand transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get A Fixed Quote <ArrowUpRight className="h-4 w-4" />
             </a>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
@@ -180,7 +164,6 @@ function FleetDetail() {
       {/* Other cars */}
       <FleetSlider cars={others} />
 
-
       {/* CTA */}
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-4xl px-6">
@@ -189,12 +172,15 @@ function FleetDetail() {
               Ready to ride in the <span className="brand-text italic">{car.name}?</span>
             </h2>
             <p className="mt-3 text-white/75 max-w-lg mx-auto">
-              Message us with your pickup, destination and time — we'll confirm your driver in minutes.
+              Message us with your pickup, destination and time — we'll confirm your driver in
+              minutes.
             </p>
             <a
               href={WHATSAPP}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand text-[var(--ink)] px-7 py-4 text-sm font-extrabold hover:bg-white transition"
-             target="_blank" rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               <ArrowUpRight className="h-4 w-4" />
             </a>

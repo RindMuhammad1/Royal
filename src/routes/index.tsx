@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Phone,
   Mail,
   MapPin,
   Clock,
@@ -117,7 +116,6 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP = "https://wa.me/971551988793";
-const PHONE = "+971 55 198 8793";
 const EMAIL = "royalchauffeuruae@gmail.com";
 const FACEBOOK = "https://www.facebook.com/share/1MdBvEg6Sh/";
 const INSTAGRAM = "https://www.instagram.com/royalchauffeuruae";
@@ -354,12 +352,6 @@ function TopBar() {
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-2.5 text-xs">
         <div className="flex items-center gap-6">
           <a
-            href={`tel:${PHONE.replace(/\s/g, "")}`}
-            className="flex items-center gap-2 hover:text-brand transition-colors"
-          >
-            <Phone className="h-3.5 w-3.5 text-brand" /> {PHONE}
-          </a>
-          <a
             href={`mailto:${EMAIL}`}
             className="flex items-center gap-2 hover:text-brand transition-colors"
           >
@@ -515,12 +507,6 @@ function Header() {
               >
                 <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
-              <a
-                href={`tel:${PHONE.replace(/\s/g, "")}`}
-                className="flex items-center justify-center gap-2 rounded-full border border-white/25 text-white px-5 py-3.5 text-sm font-bold"
-              >
-                <Phone className="h-4 w-4 text-brand" /> {PHONE}
-              </a>
               <div className="flex items-center justify-center gap-5 pt-2 text-white/60">
                 <a
                   href={FACEBOOK}
@@ -613,8 +599,8 @@ function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <WhatsAppIcon className="h-4 w-4" /> Talk To Our Team
-            <ArrowUpRight className="h-4 w-4" />
+            WhatsApp Booking
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
           </a>
         </div>
       </div>
@@ -705,12 +691,6 @@ function Hero() {
                 <WhatsAppIcon className="h-5 w-5" />
                 WhatsApp Booking
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
-              </a>
-              <a
-                href={`tel:${PHONE.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-brand hover:text-brand"
-              >
-                <Phone className="h-4 w-4" /> {PHONE}
               </a>
             </div>
 
@@ -1325,16 +1305,9 @@ function CTA() {
                 >
                   <WhatsAppIcon className="h-4 w-4" /> WhatsApp Us
                 </a>
-                <a
-                  href={`tel:${PHONE.replace(/\s/g, "")}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-4 text-sm font-semibold text-white hover:border-brand hover:text-brand transition"
-                >
-                  <Phone className="h-4 w-4" /> Call Us
-                </a>
               </div>
             </div>
             <div className="grid gap-3">
-              <ContactRow icon={Phone} title="Call us" value={PHONE} />
               <ContactRow icon={Mail} title="Email" value={EMAIL} />
               <ContactRow icon={MapPin} title="Based in" value="Dubai, UAE" />
               <ContactRow icon={Clock} title="Hours" value="Available 24/7" />
@@ -1434,7 +1407,6 @@ function Footer() {
             Contact
           </div>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
-            <li>{PHONE}</li>
             <li>{EMAIL}</li>
             <li>Dubai, UAE</li>
             <li>Available 24/7</li>
