@@ -167,9 +167,9 @@ const heroBadges = [
 ];
 
 const trustStats = [
-  { value: "12 yrs", label: "On UAE Roads" },
-  { value: "50+", label: "Trusted Chauffeurs" },
-  { value: "24/7", label: "Available" },
+  { value: "15,000+", label: "LUXURY RIDES" },
+  { value: "98%", label: "CLIENT SATISFACTION" },
+  { value: "150+", label: "PREMIUM VEHICLES" },
 ];
 
 const steps = [
@@ -395,7 +395,7 @@ function Logo() {
         className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
       />
       <div className="leading-tight">
-        <div className="font-display text-lg tracking-tight text-foreground">
+        <div className="font-sans text-lg tracking-tight text-foreground">
           ROYAL <span className="text-brand">CHAUFFEUR</span>
         </div>
         <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase font-semibold">
@@ -468,7 +468,7 @@ function Header() {
                   alt="Royal Chauffeur UAE logo"
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-brand/40"
                 />
-                <div className="font-display text-base">
+                <div className="font-sans text-base">
                   ROYAL <span className="text-brand">CHAUFFEUR</span>
                 </div>
               </div>
@@ -491,7 +491,7 @@ function Header() {
                   className="group flex items-center gap-4 py-4 border-b border-white/10 last:border-0"
                 >
                   <span className="text-[11px] font-mono text-brand/70 w-6">0{i + 1}</span>
-                  <span className="font-display text-2xl text-white group-hover:text-brand transition-colors">
+                  <span className="font-sans text-2xl text-white group-hover:text-brand transition-colors">
                     {n.label}
                   </span>
                 </a>
@@ -559,8 +559,8 @@ function About() {
           <div className="absolute -bottom-6 left-6 right-6 sm:right-auto rounded-2xl bg-[var(--ink)] text-white px-6 py-5 flex items-center gap-6">
             {trustStats.map((s) => (
               <div key={s.label}>
-                <div className="font-display text-xl text-brand">{s.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/70">
+                <div className="font-sans text-xl text-brand">{s.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/70 font-medium">
                   {s.label}
                 </div>
               </div>
@@ -570,7 +570,7 @@ function About() {
 
         <div className="pt-8 lg:pt-0">
           <SectionEyebrow>About Us</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+          <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
             The UAE's private <br /> <span className="brand-text italic">chauffeur company</span>
           </h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
@@ -662,7 +662,7 @@ function Hero() {
             <div className="space-y-6">
               <h1
                 key={`title-${i}`}
-                className="font-display text-[44px] leading-[1.05] tracking-tight sm:text-6xl lg:text-[80px]"
+                className="font-sans text-[44px] leading-[1.05] tracking-tight sm:text-6xl lg:text-[80px]"
                 style={{ animation: "hero-fade 0.8s ease-out both" }}
               >
                 {slide.title.map((line, idx) => (
@@ -715,7 +715,7 @@ function Hero() {
               <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-b from-brand/20 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--ink)]/40 p-8 backdrop-blur-2xl shadow-[0_40px_100px_-30px_rgba(0,0,0,0.7)]">
                 <div className="mb-10 space-y-1">
-                  <h2 className="font-display text-2xl text-white">Exclusive Rates</h2>
+                  <h2 className="font-sans text-2xl text-white">Exclusive Rates</h2>
                   <p className="text-xs uppercase tracking-widest text-white/40">
                     Fixed, transparent pricing
                   </p>
@@ -785,8 +785,8 @@ function Hero() {
               <div key={s.label} className="flex items-center gap-8">
                 {idx > 0 && <div className="hidden h-8 w-px bg-white/10 md:block" />}
                 <div className="flex flex-col gap-1">
-                  <span className="font-display text-3xl tracking-tight text-white">{s.value}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
+                  <span className="font-sans text-3xl tracking-tight text-white">{s.value}</span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-medium">
                     {s.label}
                   </span>
                 </div>
@@ -867,7 +867,7 @@ function Fleet() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Our Fleet</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+            <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
               Choose your <span className="brand-text italic">ride</span>
             </h2>
             <p className="mt-4 text-muted-foreground max-w-xl">
@@ -929,7 +929,7 @@ function Fleet() {
               </div>
 
               <div className="p-7 sm:p-8">
-                <h3 className="font-display text-2xl text-foreground">{car.name}</h3>
+                <h3 className="font-sans text-2xl text-foreground">{car.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{car.short}</p>
 
                 <div className="mt-6 mb-8 flex items-center gap-6 border-y border-brand/10 py-4">
@@ -977,7 +977,7 @@ function HowItWorks() {
           <div className="flex justify-center">
             <SectionEyebrow>Simple Process</SectionEyebrow>
           </div>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+          <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
             How it <span className="brand-text italic">works</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -991,10 +991,10 @@ function HowItWorks() {
               key={s.n}
               className="relative rounded-2xl border border-border bg-background p-8 hover:border-brand/50 transition"
             >
-              <div className="absolute -top-5 left-8 font-display text-4xl font-black text-brand">
+              <div className="absolute -top-5 left-8 font-sans text-4xl font-black text-brand">
                 {s.n}
               </div>
-              <h3 className="mt-4 font-display text-2xl text-foreground">{s.title}</h3>
+              <h3 className="mt-4 font-sans text-2xl text-foreground">{s.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {s.tags.map((t) => (
@@ -1022,7 +1022,7 @@ function Values() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <SectionEyebrow>Why Royal Chauffeur</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+          <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
             Built around <br /> <span className="brand-text italic">your day</span>
           </h2>
         </div>
@@ -1036,7 +1036,7 @@ function Values() {
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--ink)] text-brand">
                 <Icon className="h-6 w-6" strokeWidth={2.2} />
               </div>
-              <h3 className="mt-6 font-display text-xl text-foreground">{title}</h3>
+              <h3 className="mt-6 font-sans text-xl text-foreground">{title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </article>
           ))}
@@ -1055,7 +1055,7 @@ function Packages() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Packages & Pricing</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+            <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
               Transparent <span className="brand-text italic">pricing</span>
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -1080,7 +1080,7 @@ function Packages() {
                 </div>
               )}
               <h3
-                className={`font-display text-xl leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}
+                className={`font-sans text-xl leading-tight ${p.highlight ? "text-white" : "text-foreground"}`}
               >
                 {p.name}
               </h3>
@@ -1164,7 +1164,7 @@ function Services() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <SectionEyebrow>Our Services</SectionEyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+            <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
               Chauffeured travel, <br />{" "}
               <span className="brand-text italic">on your schedule.</span>
             </h2>
@@ -1188,7 +1188,7 @@ function Services() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand ring-1 ring-brand/30">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-6 font-display text-xl text-foreground">{title}</h3>
+              <h3 className="mt-6 font-sans text-xl text-foreground">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
               <div className="mt-5 flex items-center gap-4">
                 {slug ? (
@@ -1228,7 +1228,7 @@ function FAQ() {
           <div className="flex justify-center">
             <SectionEyebrow>Need Help?</SectionEyebrow>
           </div>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight text-foreground">
+          <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight text-foreground">
             Frequently asked <span className="brand-text italic">questions</span>
           </h2>
         </div>
@@ -1289,7 +1289,7 @@ function CTA() {
                   Ready When You Are
                 </span>
               </div>
-              <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
+              <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight">
                 Book your <span className="brand-text italic">chauffeur</span> in 30 seconds.
               </h2>
               <p className="mt-4 text-white/75 max-w-lg">
@@ -1357,7 +1357,7 @@ function Footer() {
               className="h-11 w-11 rounded-full object-cover ring-1 ring-brand/40"
             />
             <div className="leading-tight">
-              <div className="font-display text-lg tracking-tight text-white">
+              <div className="font-sans text-lg tracking-tight text-white">
                 ROYAL <span className="text-brand">CHAUFFEUR</span>
               </div>
               <div className="text-[10px] tracking-[0.3em] text-white/60 uppercase font-semibold">
@@ -1431,7 +1431,7 @@ function AreaCoverage() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl">
           <SectionEyebrow>Areas We Cover</SectionEyebrow>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl leading-tight">
+          <h2 className="mt-4 font-sans text-4xl sm:text-5xl leading-tight">
             Every corner of <span className="brand-text italic">the UAE.</span>
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
