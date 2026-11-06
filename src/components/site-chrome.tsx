@@ -33,6 +33,7 @@ export function SiteHeader() {
     { label: "Fleet", to: "/" as const, hash: "fleet" },
     { label: "Services", to: "/" as const, hash: "services" },
     { label: "Packages", to: "/" as const, hash: "packages" },
+    { label: "Blog", to: "/blog" as const, hash: "" },
     { label: "Contact", to: "/" as const, hash: "contact" },
   ];
   return (
@@ -272,6 +273,11 @@ export function SiteFooter() {
             <li>
               <Link to="/" hash="packages" className="hover:text-brand">
                 Packages
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog" className="hover:text-brand">
+                Blog
               </Link>
             </li>
           </ul>

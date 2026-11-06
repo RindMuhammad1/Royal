@@ -25,6 +25,8 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { submitEnquiryFn } from "@/functions/enquiries";
+import { services as serviceList } from "@/lib/services";
 
 import dubaiSkyline from "@/assets/dubai-skyline.jpg";
 import dubaiSzr from "@/assets/dubai-szr.jpg";
@@ -414,6 +416,7 @@ function Header() {
     { label: "Fleet", href: "#fleet" },
     { label: "Services", href: "#services" },
     { label: "Packages", href: "#packages" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "#contact" },
   ];
   return (
@@ -1314,8 +1317,119 @@ function CTA() {
             </div>
           </div>
         </div>
+
+        <ContactForm />
       </div>
     </section>
+  );
+}
+
+function ContactForm() {
+  const empty = { name: "", email: "", phone: "", service: "", pickupDate: "", message: "", website: "" };
+  const [form, setForm] = useState(empty);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  const update =
+    (key: keyof typeof empty) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
+    setSubmitting(true);
+    try {
+      const res = await submitEnquiryFn({ data: form });
+      if (res.success) {
+        setForm(empty);
+        setStatus({ type: "success", text: "Thank you! Your enquiry has been received — we'll get back to you shortly." });
+      } else {
+        setStatus({ type: "error", text: res.error || "Something went wrong. Please try WhatsApp." });
+      }
+    } catch {
+      setStatus({ type: "error", text: "Something went wrong. Please try again or message us on WhatsApp." });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const inputCls =
+    "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand transition";
+  const labelCls = "block text-xs font-semibold text-foreground/80 mb-1.5";
+
+  return (
+    <div className="relative mt-10 rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-sm">
+      <div className="inline-flex items-center gap-3">
+        <span className="h-2 w-2 rounded-full bg-brand" />
+        <span className="text-[11px] uppercase tracking-[0.3em] text-brand font-bold">Send An Enquiry</span>
+      </div>
+      <h3 className="mt-3 font-sans text-2xl sm:text-3xl text-foreground">Prefer email? Tell us about your trip.</h3>
+
+      <form onSubmit={handleSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
+        {/* Honeypot field — hidden from humans, catches bots */}
+        <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+          <label>
+            Website
+            <input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={update("website")} />
+          </label>
+        </div>
+
+        <div>
+          <label htmlFor="enq-name" className={labelCls}>Full Name *</label>
+          <input id="enq-name" required minLength={2} maxLength={120} value={form.name} onChange={update("name")} className={inputCls} placeholder="Your name" />
+        </div>
+        <div>
+          <label htmlFor="enq-email" className={labelCls}>Email *</label>
+          <input id="enq-email" type="email" required maxLength={255} value={form.email} onChange={update("email")} className={inputCls} placeholder="you@example.com" />
+        </div>
+        <div>
+          <label htmlFor="enq-phone" className={labelCls}>Phone / WhatsApp</label>
+          <input id="enq-phone" type="tel" maxLength={40} value={form.phone} onChange={update("phone")} className={inputCls} placeholder="+971 ..." />
+        </div>
+        <div>
+          <label htmlFor="enq-service" className={labelCls}>Service</label>
+          <select id="enq-service" value={form.service} onChange={update("service")} className={inputCls}>
+            <option value="">Select a service</option>
+            {serviceList.map((s) => (
+              <option key={s.slug} value={s.title}>{s.title}</option>
+            ))}
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="enq-date" className={labelCls}>Preferred Date</label>
+          <input id="enq-date" type="date" value={form.pickupDate} onChange={update("pickupDate")} className={inputCls} />
+        </div>
+        <div className="sm:col-span-2">
+          <label htmlFor="enq-message" className={labelCls}>Message *</label>
+          <textarea id="enq-message" required minLength={10} maxLength={3000} rows={5} value={form.message} onChange={update("message")} className={inputCls} placeholder="Pickup location, destination, time, number of passengers..." />
+        </div>
+
+        {status && (
+          <div
+            role="status"
+            className={`sm:col-span-2 rounded-xl border p-3.5 text-sm ${
+              status.type === "success"
+                ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-700"
+                : "border-red-500/30 bg-red-500/10 text-red-600"
+            }`}
+          >
+            {status.text}
+          </div>
+        )}
+
+        <div className="sm:col-span-2">
+          <button
+            type="submit"
+            disabled={submitting}
+            className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-7 py-4 text-sm font-bold hover:bg-brand-soft transition disabled:opacity-50"
+          >
+            {submitting ? "Sending..." : "Send Enquiry"} <ArrowUpRight className="h-4 w-4" />
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
@@ -1348,8 +1462,8 @@ function ContactRow({
 function Footer() {
   return (
     <footer className="bg-[var(--ink)] text-white/80 border-t border-black/10">
-      <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-4">
-        <div className="md:col-span-2">
+      <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
           <a href="#" className="flex items-center gap-3 group">
             <img
               src={logoAsset}
@@ -1400,6 +1514,31 @@ function Footer() {
             <li>Executive Airport Transport</li>
             <li>Full Day / Half Day</li>
             <li>Monthly Driver</li>
+          </ul>
+        </div>
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-brand font-bold">
+            Journal & Media
+          </div>
+          <ul className="mt-4 space-y-2 text-sm text-white/70">
+            <li>
+              <a href="/blog" className="hover:text-brand transition-colors">
+                Dubai Travel Journal
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog/ultimate-guide-dubai-airport-chauffeur-transfers"
+                className="hover:text-brand transition-colors"
+              >
+                Airport VIP Transfers
+              </a>
+            </li>
+            <li>
+              <a href="/admin/login" className="hover:text-brand transition-colors text-white/40">
+                Admin Console
+              </a>
+            </li>
           </ul>
         </div>
         <div>
